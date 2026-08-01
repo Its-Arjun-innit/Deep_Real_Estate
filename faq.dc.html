@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="./support.js"></script>
+<script src="./transitions.js" defer></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Sora:wght@400;500;600;700;800&family=Plus+Jakarta+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <style>body{margin:0;}a{color:#14304d;}a:hover{color:#c49a3c;}</style>
+</helmet>
+<div style="font-family:'Plus Jakarta Sans',sans-serif;color:#1c2b39;background:#fff;">
+  <dc-import name="Header" active="" hint-size="100%,110px"></dc-import>
+
+  <section style="background:linear-gradient(160deg,#0e2439,#14304d);color:#fff;">
+    <div style="max-width:1240px;margin:0 auto;padding:66px 24px;">
+      <div style="font-size:13px;color:#93a4b6;margin-bottom:14px;"><a href="index.dc.html" style="color:#93a4b6;text-decoration:none;">Home</a> · FAQ</div>
+      <h1 style="font-family:'Sora',sans-serif;font-weight:800;font-size:46px;letter-spacing:-.02em;margin:0 0 16px;">Frequently Asked Questions</h1>
+      <p style="font-size:18px;line-height:1.65;color:#c7d2df;max-width:720px;margin:0;">Answers to common questions about buying, selling and documentation in Haryana.</p>
+    </div>
+  </section>
+
+  <section style="max-width:860px;margin:0 auto;padding:64px 24px 84px;">
+    <div style="display:flex;flex-direction:column;gap:14px;">
+      <sc-for list="{{ faqs }}" as="f" hint-placeholder-count="8">
+        <div style="border:1px solid #e9edf3;border-radius:14px;overflow:hidden;background:#fff;">
+          <button onClick="{{ f.toggle }}" style="width:100%;font:inherit;cursor:pointer;background:none;border:none;padding:22px 24px;display:flex;align-items:center;justify-content:space-between;gap:16px;text-align:left;">
+            <span style="display:flex;gap:14px;align-items:start;">
+              <span style="font-family:'Sora',sans-serif;font-weight:800;font-size:15px;color:#c49a3c;flex-shrink:0;line-height:1.5;">{{ f.num }}</span>
+              <span style="font-family:'Sora',sans-serif;font-weight:600;font-size:17px;color:#14304d;line-height:1.45;">{{ f.q }}</span>
+            </span>
+            <span style="font-size:20px;color:#8a94a3;flex-shrink:0;line-height:1;">{{ f.sign }}</span>
+          </button>
+          <sc-if value="{{ f.isOpen }}">
+            <div style="padding:0 24px 24px 62px;font-size:15.5px;line-height:1.75;color:#4a5a6a;">{{ f.a }}</div>
+          </sc-if>
+        </div>
+      </sc-for>
+    </div>
+
+    <div style="margin-top:40px;background:#f4f6f9;border:1px solid #e9edf3;border-radius:16px;padding:32px;text-align:center;">
+      <h3 style="font-family:'Sora',sans-serif;font-weight:600;font-size:20px;margin:0 0 8px;">Still have a question?</h3>
+      <p style="font-size:15px;color:#64748b;margin:0 0 20px;">Our team responds within 15 minutes during business hours (9am–10pm).</p>
+      <a href="contact.dc.html" style="display:inline-block;background:#c49a3c;color:#14304d;font-weight:700;font-size:15px;text-decoration:none;padding:13px 26px;border-radius:11px;">Contact Us</a>
+    </div>
+  </section>
+
+  <dc-import name="Footer" hint-size="100%,360px"></dc-import>
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script>
+class Component extends DCLogic {
+  state = { open: 0 };
+  faqData() {
+    return [
+      { q: "I'd like to sell my property. What documentation would I need to provide a buyer?", a: "The original Sale Deed, Title Deed, pertinent tax receipts, and Encumbrance Certificate may be requested by purchasers." },
+      { q: "Stamp duty is paid by the buyer or seller?", a: "Only the buyer pays the Stamp Duty." },
+      { q: "Is there a process/form to fill before the Sale Deed or Transfer Document can be executed?", a: "Yes — procedures and forms vary by state; each state in India has its own set of forms. Both parties must provide PAN numbers; either party may need Income Tax Form 60. An NRI not assessed for taxes in India may be exempt." },
+      { q: "Do legal papers for property sales have to be registered?", a: "Yes. You can complete it at the district's sub-registrar's office." },
+      { q: "When does a residential property sale become official?", a: "When the seller has received the full purchase price, the documents have been registered, and the buyer has been given physical possession." },
+      { q: "What help does Deep Real provide to property brokers?", a: "Brokers can list properties for sale through the inquiry form on the website, connecting with buyers at no additional cost." },
+      { q: "How soon after I list my property would I get a call?", a: "Within 15 minutes during business hours (9am–10pm), or the next business day otherwise." },
+      { q: "How does Deep Real help if I want to sell my property?", a: "Complete an inquiry form, available on the website's front page." },
+    ];
+  }
+  renderVals() {
+    return {
+      faqs: this.faqData().map((f, i) => ({
+        num: String(i + 1).padStart(2, '0'),
+        q: f.q, a: f.a,
+        isOpen: this.state.open === i,
+        sign: this.state.open === i ? '\u2212' : '+',
+        toggle: () => this.setState(s => ({ open: s.open === i ? -1 : i })),
+      })),
+    };
+  }
+}
+</script>
+</body>
+</html>

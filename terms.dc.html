@@ -1,0 +1,186 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="./support.js"></script>
+<script src="./transitions.js" defer></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Sora:wght@400;500;600;700;800&family=Plus+Jakarta+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <style>body{margin:0;}a{color:#14304d;}a:hover{color:#c49a3c;}</style>
+</helmet>
+<div style="font-family:'Plus Jakarta Sans',sans-serif;color:#1c2b39;background:#fff;">
+  <dc-import name="Header" active="" hint-size="100%,110px"></dc-import>
+
+  <section style="background:linear-gradient(160deg,#0e2439,#14304d);color:#fff;">
+    <div style="max-width:1240px;margin:0 auto;padding:60px 24px;">
+      <div style="font-size:13px;color:#93a4b6;margin-bottom:14px;"><a href="index.dc.html" style="color:#93a4b6;text-decoration:none;">Home</a> · Terms &amp; Conditions</div>
+      <h1 style="font-family:'Sora',sans-serif;font-weight:800;font-size:42px;letter-spacing:-.02em;margin:0;">Terms &amp; Conditions</h1>
+    </div>
+  </section>
+
+  <section style="max-width:1100px;margin:0 auto;padding:56px 24px 84px;display:grid;grid-template-columns:240px 1fr;gap:48px;align-items:start;">
+    <aside style="position:sticky;top:130px;">
+      <div style="font-size:12px;font-weight:700;letter-spacing:.12em;text-transform:uppercase;color:#94a3b2;margin-bottom:14px;">On this page</div>
+      <div style="display:flex;flex-direction:column;gap:9px;font-size:14px;">
+        <sc-for list="{{ toc }}" as="t" hint-placeholder-count="16">
+          <a href="{{ t.href }}" style="color:#4a5a6a;text-decoration:none;">{{ t.label }}</a>
+        </sc-for>
+      </div>
+    </aside>
+    <div>
+      <p style="font-size:15px;color:#64748b;margin:0 0 36px;">Last updated: 4 July 2022</p>
+      <sc-for list="{{ sections }}" as="s" hint-placeholder-count="21">
+        <div id="{{ s.id }}" style="scroll-margin-top:130px;margin-bottom:32px;">
+          <h2 style="font-family:'Sora',sans-serif;font-weight:700;font-size:22px;margin:0 0 12px;">{{ s.title }}</h2>
+          <sc-for list="{{ s.blocks }}" as="b">
+            <sc-if value="{{ b.isP }}"><p style="font-size:15.5px;line-height:1.75;color:#4a5a6a;margin:0 0 12px;">{{ b.text }}</p></sc-if>
+            <sc-if value="{{ b.isUl }}"><ul style="font-size:15.5px;line-height:1.7;color:#4a5a6a;margin:0 0 12px;padding-left:22px;"><sc-for list="{{ b.items }}" as="li"><li style="margin:0 0 7px;">{{ li }}</li></sc-for></ul></sc-if>
+          </sc-for>
+        </div>
+      </sc-for>
+    </div>
+  </section>
+
+  <dc-import name="Footer" hint-size="100%,360px"></dc-import>
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script>
+class Component extends DCLogic {
+  // p(text) → paragraph block; ul(items) → bullet list block.
+  sectionData() {
+    const p = (text) => ({ t: 'p', text });
+    const ul = (items) => ({ t: 'ul', items });
+    return [
+      ['Introduction', [
+        p('Welcome to Deep Real Estate (“Company”, “we”, “our”, “us”)!'),
+        p('These Terms of Service (“Terms”, “Terms of Service”) govern your use of our website located at www.deeprealestate.in (together or individually “Service”) operated by Deep Real Estate.'),
+        p('Our Privacy Policy also governs your use of our Service and explains how we collect, safeguard and disclose information that results from your use of our web pages.'),
+        p('Your agreement with us includes these Terms and our Privacy Policy (“Agreements”). You acknowledge that you have read and understood Agreements, and agree to be bound of them.'),
+        p('If you do not agree with (or cannot comply with) Agreements, then you may not use the Service, but please let us know by emailing at info@deeprealestate.in so we can try to find a solution. These Terms apply to all visitors, users and others who wish to access or use Service.'),
+      ]],
+      ['Communications', [
+        p('By using our Service, you agree to subscribe to newsletters, marketing or promotional materials and other information we may send. However, you may opt out of receiving any, or all, of these communications from us by following the unsubscribe link or by emailing at info@deeprealestate.in.'),
+      ]],
+      ['Contests, Sweepstakes and Promotions', [
+        p('Any contests, sweepstakes or other promotions (collectively, “Promotions”) made available through Service may be governed by rules that are separate from these Terms of Service. If you participate in any Promotions, please review the applicable rules as well as our Privacy Policy. If the rules for a Promotion conflict with these Terms of Service, Promotion rules will apply.'),
+      ]],
+      ['Content', [
+        p('Content found on or through this Service are the property of Deep Real Estate or used with permission. You may not distribute, modify, transmit, reuse, download, repost, copy, or use said Content, whether in whole or in part, for commercial purposes or for personal gain, without express advance written permission from us.'),
+      ]],
+      ['Prohibited Uses', [
+        p('You may use Service only for lawful purposes and in accordance with Terms. You agree not to use Service:'),
+        ul([
+          'In any way that violates any applicable national or international law or regulation.',
+          'For the purpose of exploiting, harming, or attempting to exploit or harm minors in any way by exposing them to inappropriate content or otherwise.',
+          'To transmit, or procure the sending of, any advertising or promotional material, including any “junk mail”, “chain letter,” “spam,” or any other similar solicitation.',
+          'To impersonate or attempt to impersonate Company, a Company employee, another user, or any other person or entity.',
+          'In any way that infringes upon the rights of others, or in any way is illegal, threatening, fraudulent, or harmful, or in connection with any unlawful, illegal, fraudulent, or harmful purpose or activity.',
+          'To engage in any other conduct that restricts or inhibits anyone’s use or enjoyment of Service, or which, as determined by us, may harm or offend Company or users of Service or expose them to liability.',
+        ]),
+        p('Additionally, you agree not to:'),
+        ul([
+          'Use Service in any manner that could disable, overburden, damage, or impair Service or interfere with any other party’s use of Service, including their ability to engage in real time activities through Service.',
+          'Use any robot, spider, or other automatic device, process, or means to access Service for any purpose, including monitoring or copying any of the material on Service.',
+          'Use any manual process to monitor or copy any of the material on Service or for any other unauthorized purpose without our prior written consent.',
+          'Use any device, software, or routine that interferes with the proper working of Service.',
+          'Introduce any viruses, trojan horses, worms, logic bombs, or other material which is malicious or technologically harmful.',
+          'Attempt to gain unauthorized access to, interfere with, damage, or disrupt any parts of Service, the server on which Service is stored, or any server, computer, or database connected to Service.',
+          'Attack Service via a denial-of-service attack or a distributed denial-of-service attack.',
+          'Take any action that may damage or falsify Company rating.',
+          'Otherwise attempt to interfere with the proper working of Service.',
+        ]),
+      ]],
+      ['Analytics', [
+        p('We may use third-party Service Providers to monitor and analyze the use of our Service.'),
+      ]],
+      ['No Use By Minors', [
+        p('Service is intended only for access and use by individuals at least eighteen (18) years old. By accessing or using Service, you warrant and represent that you are at least eighteen (18) years of age and with the full authority, right, and capacity to enter into this agreement and abide by all of the terms and conditions of Terms. If you are not at least eighteen (18) years old, you are prohibited from both the access and usage of Service.'),
+      ]],
+      ['Intellectual Property', [
+        p('Service and its original content (excluding Content provided by users), features and functionality are and will remain the exclusive property of Deep Real Estate and its licensors. Service is protected by copyright, trademark, and other laws of and foreign countries. Our trademarks may not be used in connection with any product or service without the prior written consent of Deep Real Estate.'),
+      ]],
+      ['Copyright Policy', [
+        p('We respect the intellectual property rights of others. It is our policy to respond to any claim that Content posted on Service infringes on the copyright or other intellectual property rights (“Infringement”) of any person or entity.'),
+        p('If you are a copyright owner, or authorized on behalf of one, and you believe that the copyrighted work has been copied in a way that constitutes copyright infringement, please submit your claim via email to info@deeprealestate.in, with the subject line: “Copyright Infringement” and include in your claim a detailed description of the alleged Infringement as detailed below, under “DMCA Notice and Procedure for Copyright Infringement Claims”'),
+        p('You may be held accountable for damages (including costs and attorneys’ fees) for misrepresentation or bad-faith claims on the infringement of any Content found on and/or through Service on your copyright.'),
+      ]],
+      ['DMCA Notice and Procedure for Copyright Infringement Claims', [
+        p('You may submit a notification pursuant to the Digital Millennium Copyright Act (DMCA) by providing our Copyright Agent with the following information in writing (see 17 U.S.C 512(c)(3) for further detail):'),
+        ul([
+          'an electronic or physical signature of the person authorized to act on behalf of the owner of the copyright’s interest;',
+          'a description of the copyrighted work that you claim has been infringed, including the URL (i.e., web page address) of the location where the copyrighted work exists or a copy of the copyrighted work;',
+          'identification of the URL or other specific location on Service where the material that you claim is infringing is located;',
+          'your address, telephone number, and email address;',
+          'a statement by you that you have a good faith belief that the disputed use is not authorized by the copyright owner, its agent, or the law;',
+          'a statement by you, made under penalty of perjury, that the above information in your notice is accurate and that you are the copyright owner or authorized to act on the copyright owner’s behalf.',
+        ]),
+        p('You can contact our Copyright Agent via email at info@deeprealestate.in.'),
+      ]],
+      ['Error Reporting and Feedback', [
+        p('You may provide us either directly at info@deeprealestate.in or via third party sites and tools with information and feedback concerning errors, suggestions for improvements, ideas, problems, complaints, and other matters related to our Service (“Feedback”). You acknowledge and agree that: (i) you shall not retain, acquire or assert any intellectual property right or other right, title or interest in or to the Feedback; (ii) Company may have development ideas similar to the Feedback; (iii) Feedback does not contain confidential information or proprietary information from you or any third party; and (iv) Company is not under any obligation of confidentiality with respect to the Feedback. In the event the transfer of the ownership to the Feedback is not possible due to applicable mandatory laws, you grant Company and its affiliates an exclusive, transferable, irrevocable, free-of-charge, sub-licensable, unlimited and perpetual right to use (including copy, modify, create derivative works, publish, distribute and commercialize) Feedback in any manner and for any purpose.'),
+      ]],
+      ['Links To Other Web Sites', [
+        p('Our Service may contain links to third party web sites or services that are not owned or controlled by Deep Real Estate.'),
+        p('Deep Real Estate has no control over, and assumes no responsibility for the content, privacy policies, or practices of any third party web sites or services. We do not warrant the offerings of any of these entities/individuals or their websites.'),
+        p('YOU ACKNOWLEDGE AND AGREE THAT COMPANY SHALL NOT BE RESPONSIBLE OR LIABLE, DIRECTLY OR INDIRECTLY, FOR ANY DAMAGE OR LOSS CAUSED OR ALLEGED TO BE CAUSED BY OR IN CONNECTION WITH USE OF OR RELIANCE ON ANY SUCH CONTENT, GOODS OR SERVICES AVAILABLE ON OR THROUGH ANY SUCH THIRD PARTY WEB SITES OR SERVICES.'),
+        p('WE STRONGLY ADVISE YOU TO READ THE TERMS OF SERVICE AND PRIVACY POLICIES OF ANY THIRD PARTY WEB SITES OR SERVICES THAT YOU VISIT.'),
+      ]],
+      ['Disclaimer Of Warranty', [
+        p('THESE SERVICES ARE PROVIDED BY COMPANY ON AN “AS IS” AND “AS AVAILABLE” BASIS. COMPANY MAKES NO REPRESENTATIONS OR WARRANTIES OF ANY KIND, EXPRESS OR IMPLIED, AS TO THE OPERATION OF THEIR SERVICES, OR THE INFORMATION, CONTENT OR MATERIALS INCLUDED THEREIN. YOU EXPRESSLY AGREE THAT YOUR USE OF THESE SERVICES, THEIR CONTENT, AND ANY SERVICES OR ITEMS OBTAINED FROM US IS AT YOUR SOLE RISK.'),
+        p('NEITHER COMPANY NOR ANY PERSON ASSOCIATED WITH COMPANY MAKES ANY WARRANTY OR REPRESENTATION WITH RESPECT TO THE COMPLETENESS, SECURITY, RELIABILITY, QUALITY, ACCURACY, OR AVAILABILITY OF THE SERVICES. WITHOUT LIMITING THE FOREGOING, NEITHER COMPANY NOR ANYONE ASSOCIATED WITH COMPANY REPRESENTS OR WARRANTS THAT THE SERVICES, THEIR CONTENT, OR ANY SERVICES OR ITEMS OBTAINED THROUGH THE SERVICES WILL BE ACCURATE, RELIABLE, ERROR-FREE, OR UNINTERRUPTED, THAT DEFECTS WILL BE CORRECTED, THAT THE SERVICES OR THE SERVER THAT MAKES IT AVAILABLE ARE FREE OF VIRUSES OR OTHER HARMFUL COMPONENTS OR THAT THE SERVICES OR ANY SERVICES OR ITEMS OBTAINED THROUGH THE SERVICES WILL OTHERWISE MEET YOUR NEEDS OR EXPECTATIONS.'),
+        p('COMPANY HEREBY DISCLAIMS ALL WARRANTIES OF ANY KIND, WHETHER EXPRESS OR IMPLIED, STATUTORY, OR OTHERWISE, INCLUDING BUT NOT LIMITED TO ANY WARRANTIES OF MERCHANTABILITY, NON-INFRINGEMENT, AND FITNESS FOR PARTICULAR PURPOSE.'),
+        p('THE FOREGOING DOES NOT AFFECT ANY WARRANTIES WHICH CANNOT BE EXCLUDED OR LIMITED UNDER APPLICABLE LAW.'),
+      ]],
+      ['Limitation Of Liability', [
+        p('EXCEPT AS PROHIBITED BY LAW, YOU WILL HOLD US AND OUR OFFICERS, DIRECTORS, EMPLOYEES, AND AGENTS HARMLESS FOR ANY INDIRECT, PUNITIVE, SPECIAL, INCIDENTAL, OR CONSEQUENTIAL DAMAGE, HOWEVER IT ARISES (INCLUDING ATTORNEYS’ FEES AND ALL RELATED COSTS AND EXPENSES OF LITIGATION AND ARBITRATION, OR AT TRIAL OR ON APPEAL, IF ANY, WHETHER OR NOT LITIGATION OR ARBITRATION IS INSTITUTED), WHETHER IN AN ACTION OF CONTRACT, NEGLIGENCE, OR OTHER TORTIOUS ACTION, OR ARISING OUT OF OR IN CONNECTION WITH THIS AGREEMENT, INCLUDING WITHOUT LIMITATION ANY CLAIM FOR PERSONAL INJURY OR PROPERTY DAMAGE, ARISING FROM THIS AGREEMENT AND ANY VIOLATION BY YOU OF ANY FEDERAL, STATE, OR LOCAL LAWS, STATUTES, RULES, OR REGULATIONS, EVEN IF COMPANY HAS BEEN PREVIOUSLY ADVISED OF THE POSSIBILITY OF SUCH DAMAGE. EXCEPT AS PROHIBITED BY LAW, IF THERE IS LIABILITY FOUND ON THE PART OF COMPANY, IT WILL BE LIMITED TO THE AMOUNT PAID FOR THE PRODUCTS AND/OR SERVICES, AND UNDER NO CIRCUMSTANCES WILL THERE BE CONSEQUENTIAL OR PUNITIVE DAMAGES. SOME STATES DO NOT ALLOW THE EXCLUSION OR LIMITATION OF PUNITIVE, INCIDENTAL OR CONSEQUENTIAL DAMAGES, SO THE PRIOR LIMITATION OR EXCLUSION MAY NOT APPLY TO YOU.'),
+      ]],
+      ['Termination', [
+        p('We may terminate or suspend your account and bar access to Service immediately, without prior notice or liability, under our sole discretion, for any reason whatsoever and without limitation, including but not limited to a breach of Terms.'),
+        p('If you wish to terminate your account, you may simply discontinue using Service.'),
+        p('All provisions of Terms which by their nature should survive termination shall survive termination, including, without limitation, ownership provisions, warranty disclaimers, indemnity and limitations of liability.'),
+      ]],
+      ['Governing Law', [
+        p('These Terms shall be governed and construed in accordance with the laws of India, which governing law applies to agreement without regard to its conflict of law provisions.'),
+        p('Our failure to enforce any right or provision of these Terms will not be considered a waiver of those rights. If any provision of these Terms is held to be invalid or unenforceable by a court, the remaining provisions of these Terms will remain in effect. These Terms constitute the entire agreement between us regarding our Service and supersede and replace any prior agreements we might have had between us regarding Service.'),
+      ]],
+      ['Changes To Service', [
+        p('We reserve the right to withdraw or amend our Service, and any service or material we provide via Service, in our sole discretion without notice. We will not be liable if for any reason all or any part of Service is unavailable at any time or for any period. From time to time, we may restrict access to some parts of Service, or the entire Service, to users, including registered users.'),
+      ]],
+      ['Amendments To Terms', [
+        p('We may amend Terms at any time by posting the amended terms on this site. It is your responsibility to review these Terms periodically.'),
+        p('Your continued use of the Platform following the posting of revised Terms means that you accept and agree to the changes. You are expected to check this page frequently so you are aware of any changes, as they are binding on you.'),
+        p('By continuing to access or use our Service after any revisions become effective, you agree to be bound by the revised terms. If you do not agree to the new terms, you are no longer authorized to use Service.'),
+      ]],
+      ['Waiver And Severability', [
+        p('No waiver by Company of any term or condition set forth in Terms shall be deemed a further or continuing waiver of such term or condition or a waiver of any other term or condition, and any failure of Company to assert a right or provision under Terms shall not constitute a waiver of such right or provision.'),
+        p('If any provision of Terms is held by a court or other tribunal of competent jurisdiction to be invalid, illegal or unenforceable for any reason, such provision shall be eliminated or limited to the minimum extent such that the remaining provisions of Terms will continue in full force and effect.'),
+      ]],
+      ['Acknowledgement', [
+        p('BY USING SERVICE OR OTHER SERVICES PROVIDED BY US, YOU ACKNOWLEDGE THAT YOU HAVE READ THESE TERMS OF SERVICE AND AGREE TO BE BOUND BY THEM.'),
+      ]],
+      ['Contact Us', [
+        p('Please send your feedback, comments, requests for technical support by email: info@deeprealestate.in.'),
+      ]],
+    ];
+  }
+  renderVals() {
+    const data = this.sectionData();
+    return {
+      sections: data.map((s, i) => ({
+        id: 't' + (i + 1),
+        title: (i + 1) + '. ' + s[0],
+        blocks: s[1].map(b => ({ isP: b.t === 'p', isUl: b.t === 'ul', text: b.text, items: b.items })),
+      })),
+      toc: data.map((s, i) => ({ href: '#t' + (i + 1), label: s[0] })),
+    };
+  }
+}
+</script>
+</body>
+</html>

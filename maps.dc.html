@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="./support.js"></script>
+<script src="./transitions.js" defer></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Sora:wght@400;500;600;700;800&family=Plus+Jakarta+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <style>body{margin:0;}a{color:#14304d;}a:hover{color:#c49a3c;}input::placeholder{color:#9aa7b5;}</style>
+</helmet>
+<div style="font-family:'Plus Jakarta Sans',sans-serif;color:#1c2b39;background:#fff;">
+  <dc-import name="Header" active="maps" hint-size="100%,110px"></dc-import>
+
+  <section style="background:linear-gradient(160deg,#0e2439,#14304d);color:#fff;">
+    <div style="max-width:1240px;margin:0 auto;padding:66px 24px;">
+      <div style="font-size:13px;color:#93a4b6;margin-bottom:14px;"><a href="index.dc.html" style="color:#93a4b6;text-decoration:none;">Home</a> · Maps</div>
+      <h1 style="font-family:'Sora',sans-serif;font-weight:800;font-size:46px;letter-spacing:-.02em;margin:0 0 16px;">Maps & Master Plans</h1>
+      <p style="font-size:18px;line-height:1.65;color:#c7d2df;max-width:720px;margin:0;">Master plans and sector maps for the Gurgaon market — organized by category. Each map opens as a downloadable resource.</p>
+    </div>
+  </section>
+
+  <section style="max-width:1240px;margin:0 auto;padding:44px 24px 0;">
+    <a href="assets/Master%20Plan/Gurgaon%20Master%20Plan.jpg" target="_blank" rel="noopener" style="display:block;border-radius:18px;overflow:hidden;border:1px solid #e3e8ef;aspect-ratio:21/8;">
+      <img src="assets/Master%20Plan/Gurgaon%20Master%20Plan.jpg" alt="Gurgaon master plan map" style="width:100%;height:100%;object-fit:cover;display:block;">
+    </a>
+  </section>
+
+  <section style="max-width:1240px;margin:0 auto;padding:36px 24px 84px;">
+    <div style="display:flex;align-items:center;gap:16px;margin-bottom:24px;flex-wrap:wrap;">
+      <div style="position:relative;flex:1;min-width:260px;">
+        <span style="position:absolute;left:16px;top:50%;transform:translateY(-50%);color:#9aa7b5;">⌕</span>
+        <input value="{{ query }}" onInput="{{ onSearch }}" placeholder="Search maps, sectors, projects…" style="width:100%;box-sizing:border-box;padding:14px 16px 14px 42px;border:1px solid #e3e8ef;border-radius:12px;font:inherit;font-size:15px;color:#1c2b39;background:#f9fafc;outline:none;">
+      </div>
+      <div style="font-size:14px;color:#64748b;">{{ totalCount }} maps across {{ catCount }} categories</div>
+    </div>
+
+    <div style="display:flex;flex-direction:column;gap:14px;">
+      <sc-for list="{{ categories }}" as="cat" hint-placeholder-count="6">
+        <div style="border:1px solid #e9edf3;border-radius:16px;overflow:hidden;background:#fff;">
+          <button onClick="{{ cat.toggle }}" style="width:100%;font:inherit;cursor:pointer;background:#f4f6f9;border:none;padding:20px 24px;display:flex;align-items:center;justify-content:space-between;gap:16px;text-align:left;">
+            <span style="display:flex;align-items:center;gap:14px;">
+              <span style="width:42px;height:42px;border-radius:11px;background:#14304d;color:#d9b45f;display:flex;align-items:center;justify-content:center;font-size:19px;flex-shrink:0;">▤</span>
+              <span style="min-width:0;"><span style="display:block;font-family:'Sora',sans-serif;font-weight:600;font-size:18px;color:#14304d;white-space:nowrap;">{{ cat.name }}</span><span style="display:block;font-size:13px;color:#64748b;margin-top:3px;">{{ cat.count }} maps</span></span>
+            </span>
+            <span style="font-size:14px;color:#8a94a3;font-family:'Courier New',monospace;">{{ cat.sign }}</span>
+          </button>
+          <sc-if value="{{ cat.isOpen }}">
+            <div style="padding:18px 24px 24px;display:grid;grid-template-columns:repeat(3,1fr);gap:12px;">
+              <sc-for list="{{ cat.items }}" as="item" hint-placeholder-count="6">
+                <a href="{{ item.href }}" target="_blank" rel="noopener" style="display:flex;align-items:center;gap:12px;padding:12px 14px;border:1px solid #eef1f5;border-radius:11px;text-decoration:none;color:#1c2b39;background:#fbfcfe;">
+                  <img src="{{ item.href }}" alt="{{ item.name }} map" loading="lazy" style="width:38px;height:38px;border-radius:8px;flex-shrink:0;object-fit:cover;border:1px solid #e7ecf2;background:#eef1f5;">
+                  <span style="flex:1;min-width:0;"><span style="display:block;font-weight:600;font-size:14px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;">{{ item.name }}</span><span style="display:block;font-size:11.5px;color:#94a3b2;font-family:'Courier New',monospace;">open map →</span></span>
+                </a>
+              </sc-for>
+            </div>
+          </sc-if>
+        </div>
+      </sc-for>
+    </div>
+
+    <sc-if value="{{ isEmpty }}">
+      <div style="text-align:center;padding:60px 20px;color:#64748b;">No maps match "<span style="font-weight:600;color:#14304d;">{{ query }}</span>". Try another sector or project name.</div>
+    </sc-if>
+
+  </section>
+
+  <dc-import name="Footer" hint-size="100%,360px"></dc-import>
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script>
+class Component extends DCLogic {
+  state = { query: '', open: { 0: true } };
+  // Each item: [display name, file name within its category folder].
+  // File names are the source of truth (assets/<dir>/<file>).
+  data() {
+    return [
+      { name: 'Master Plans', dir: 'Master Plan', items: [
+        ['Gurgaon (Master Plan)', 'Gurgaon Master Plan.jpg'], ['Manesar', 'Manesar.jpg'],
+        ['Dharuhera', 'Dharuhera.jpg'], ['Sohna Master Plan', 'Sohna Master Plan.jpg'],
+      ] },
+      { name: 'DLF', dir: 'DLF', items: [
+        ['DLF 1', 'DLF 1.jpg'], ['DLF 2', 'DLF 2.jpg'], ['DLF 3', 'DLF 3.jpg'], ['DLF 4', 'DLF 4.jpg'],
+        ['DLF 5', 'DLF 5.jpg'], ['DLF Alameda', 'DLF Alameda.jpg'], ['DLF Garden City', 'DLF Garden City.jpg'],
+      ] },
+      { name: 'HUDA Sectors', dir: 'All Huda Sectors', items: [
+        ['Sector 4 & 7', 'Sector 4 and 7.jpg'], ['Sector 5', 'Sector 5.jpg'], ['Sector 7', 'Sector 7.jpg'],
+        ['Sector 7 Ext.', 'Sector 7 Ext.jpg'], ['Sector 9', 'Sector 9.jpg'], ['Sector 9A', 'Sector 9A.jpg'],
+        ['Sector 10', 'Sector 10.jpg'], ['Sector 10A', 'Sector 10A.jpg'], ['Sector 12A', 'Sector 12A.jpg'],
+        ['Sector 14', 'Sector 14.jpg'], ['Sector 15 (I)', 'Sector 15-1.jpg'], ['Sector 15 (II)', 'Sector 15-2.jpg'],
+        ['Sector 17', 'Sector 17.jpg'], ['Sector 21', 'Sector 21.jpg'], ['Sector 22', 'Sector 22.jpg'],
+        ['Sector 23', 'Sector 23.jpg'], ['Sector 23A', 'Sector 23A.jpg'], ['Sector 27 & 28', 'Sector 27 and 28.jpg'],
+        ['Sector 29', 'Sector 29.jpg'], ['Sector 31', 'Sector 31.jpg'], ['Sector 31 & 32A', 'Sector 31 and 32A-1.jpg'],
+        ['Sector 32-33-34', 'Sector 32-33-34.jpg'], ['Sector 34', 'Sector 34.jpg'], ['Sector 38', 'Sector 38.jpg'],
+        ['Sector 39', 'Sector 39.jpg'], ['Sector 40', 'Sector 40.jpg'], ['Sector 43', 'Sector 43.jpg'],
+        ['Sector 44', 'Sector 44.jpg'], ['Sector 45', 'Sector 45.jpg'], ['Sector 46', 'Sector 46.jpg'],
+        ['Sector 47', 'Sector 47.jpg'], ['Sector 51', 'Sector 51.jpg'], ['Sector 52', 'Sector 52.jpg'],
+        ['Sector 57', 'Sector 57.jpg'],
+      ] },
+      { name: 'Sushant Lok', dir: 'Sushant Lok', items: [
+        ['Sushant Lok 1', 'Sushant Lok 1.jpg'], ['Sushant Lok 2', 'Sushant Lok 2.jpg'],
+        ['Sushant Lok 3', 'Sushant Lok 3.jpg'], ['Sushant Lok 4', 'Sushant Lok 4.jpg'],
+      ] },
+      { name: 'South City', dir: 'South City', items: [
+        ['South City 1', 'South City 1.jpg'], ['South City 2', 'South City 2.jpg'],
+      ] },
+      { name: 'Vatika', dir: 'Vatika', items: [
+        ['Vatika 1', 'Vatika 1.jpg'], ['Vatika 2', 'Vatika 2.jpg'], ['Vatika 3', 'Vatika 3.jpg'],
+        ['Vatika 4', 'Vatika 4.jpg'], ['Vatika 5', 'Vatika 5.jpg'],
+      ] },
+      { name: 'Builder Projects', dir: 'Builder Project', items: [
+        ['Anant Raj', 'Anant Raj.jpg'], ['BPTP Amstoria', 'BPTP Amstoria.jpg'], ['Emerald Floors', 'Emerald Floors.jpg'],
+        ['Greenwood City', 'Greenwood City.jpg'], ['Ireo City', 'Ireo City.jpg'], ['Malibu Town', 'Malibu Town.jpg'],
+        ['Mayfield Garden', 'Mayfield Garden.jpg'], ['Nirvana', 'Nirvana.jpg'], ['Palam Vihar', 'Palam Vihar.jpg'],
+        ['Raheja', 'Raheja.jpg'], ['Rosewood City', 'Rosewood City.jpg'], ['Saraswati Vihar', 'Saraswati Vihar.jpg'],
+        ['Suncity', 'Suncity.jpg'], ['Uppal Southend', 'Uppal Southend.jpg'], ['Vipul World', 'Vipul World.jpg'],
+      ] },
+      { name: 'Udyog Vihar', dir: 'Udyog Vihar', items: [
+        ['Pace City 1', 'Pace City 1.jpg'], ['Pace City 2', 'Pace City 2.jpg'], ['Udyog Vihar', 'Udyog Vihar.jpg'],
+      ] },
+    ];
+  }
+  encodePath(p) { return p.split('/').map(encodeURIComponent).join('/'); }
+  renderVals() {
+    const q = this.state.query.trim().toLowerCase();
+    const all = this.data();
+    let total = 0;
+    const categories = all.map((c, i) => {
+      const mapped = c.items.map(([name, file]) => ({ name, href: this.encodePath('assets/' + c.dir + '/' + file) }));
+      const items = q ? mapped.filter(it => it.name.toLowerCase().includes(q) || c.name.toLowerCase().includes(q)) : mapped;
+      total += c.items.length;
+      const isOpen = q ? items.length > 0 : !!this.state.open[i];
+      return {
+        name: c.name, count: c.items.length, items, isOpen,
+        sign: isOpen ? '–' : '+',
+        toggle: () => this.setState(s => ({ open: { ...s.open, [i]: !s.open[i] } })),
+      };
+    }).filter(c => c.items.length > 0);
+    return {
+      query: this.state.query,
+      onSearch: (e) => this.setState({ query: e.target.value }),
+      categories,
+      totalCount: total,
+      catCount: all.length,
+      isEmpty: q && categories.length === 0,
+    };
+  }
+}
+</script>
+</body>
+</html>

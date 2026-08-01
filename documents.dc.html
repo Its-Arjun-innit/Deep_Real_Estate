@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="./support.js"></script>
+<script src="./transitions.js" defer></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Sora:wght@400;500;600;700;800&family=Plus+Jakarta+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <style>body{margin:0;}a{color:#14304d;}a:hover{color:#c49a3c;}</style>
+</helmet>
+<div style="font-family:'Plus Jakarta Sans',sans-serif;color:#1c2b39;background:#fff;">
+  <dc-import name="Header" active="" hint-size="100%,110px"></dc-import>
+
+  <section style="background:linear-gradient(160deg,#0e2439,#14304d);color:#fff;">
+    <div style="max-width:1240px;margin:0 auto;padding:66px 24px;">
+      <div style="font-size:13px;color:#93a4b6;margin-bottom:14px;"><a href="index.dc.html" style="color:#93a4b6;text-decoration:none;">Home</a> · Documents</div>
+      <h1 style="font-family:'Sora',sans-serif;font-weight:800;font-size:46px;letter-spacing:-.02em;margin:0 0 16px;">Documents</h1>
+      <p style="font-size:18px;line-height:1.65;color:#c7d2df;max-width:720px;margin:0;">A library of downloadable transaction and legal document formats used in Haryana property deals.</p>
+    </div>
+  </section>
+
+  <section style="max-width:1240px;margin:0 auto;padding:64px 24px 84px;display:flex;flex-direction:column;gap:44px;">
+    <div>
+      <div style="display:flex;align-items:center;gap:14px;margin-bottom:20px;">
+        <span style="width:44px;height:44px;border-radius:11px;background:#14304d;color:#d9b45f;display:flex;align-items:center;justify-content:center;font-size:20px;">▤</span>
+        <h2 style="font-family:'Sora',sans-serif;font-weight:700;font-size:26px;margin:0;">General <span style="font-size:16px;color:#94a3b2;font-weight:500;">· 7 documents</span></h2>
+      </div>
+      <div style="display:grid;grid-template-columns:repeat(2,1fr);gap:12px;">
+        <sc-for list="{{ general }}" as="doc" hint-placeholder-count="7">
+          <a href="{{ doc.href }}" download style="display:flex;align-items:center;gap:14px;padding:16px 18px;border:1px solid #eef1f5;border-radius:12px;text-decoration:none;color:#1c2b39;background:#fbfcfe;">
+            <span style="width:38px;height:38px;border-radius:9px;background:#f4f6f9;border:1px solid #e7ecf2;display:flex;align-items:center;justify-content:center;color:#c49a3c;font-size:16px;flex-shrink:0;">⤓</span>
+            <span style="flex:1;font-weight:600;font-size:14.5px;">{{ doc.name }}</span>
+            <span style="font-size:11.5px;color:#94a3b2;font-family:'Courier New',monospace;">{{ doc.ext }}</span>
+          </a>
+        </sc-for>
+      </div>
+    </div>
+
+    <div>
+      <div style="display:flex;align-items:center;gap:14px;margin-bottom:20px;">
+        <span style="width:44px;height:44px;border-radius:11px;background:#14304d;color:#d9b45f;display:flex;align-items:center;justify-content:center;font-size:20px;">▤</span>
+        <h2 style="font-family:'Sora',sans-serif;font-weight:700;font-size:26px;margin:0;">HUDA-specific <span style="font-size:16px;color:#94a3b2;font-weight:500;">· 13 documents</span></h2>
+      </div>
+      <div style="display:grid;grid-template-columns:repeat(2,1fr);gap:12px;">
+        <sc-for list="{{ huda }}" as="doc" hint-placeholder-count="13">
+          <a href="{{ doc.href }}" download style="display:flex;align-items:center;gap:14px;padding:16px 18px;border:1px solid #eef1f5;border-radius:12px;text-decoration:none;color:#1c2b39;background:#fbfcfe;">
+            <span style="width:38px;height:38px;border-radius:9px;background:#f4f6f9;border:1px solid #e7ecf2;display:flex;align-items:center;justify-content:center;color:#c49a3c;font-size:16px;flex-shrink:0;">⤓</span>
+            <span style="flex:1;font-weight:600;font-size:14.5px;">{{ doc.name }}</span>
+            <span style="font-size:11.5px;color:#94a3b2;font-family:'Courier New',monospace;">{{ doc.ext }}</span>
+          </a>
+        </sc-for>
+      </div>
+    </div>
+
+    <div>
+      <div style="display:flex;align-items:center;gap:14px;margin-bottom:20px;">
+        <span style="width:44px;height:44px;border-radius:11px;background:#14304d;color:#d9b45f;display:flex;align-items:center;justify-content:center;font-size:20px;">▤</span>
+        <h2 style="font-family:'Sora',sans-serif;font-weight:700;font-size:26px;margin:0;">Property formats <span style="font-size:16px;color:#94a3b2;font-weight:500;">· 7 documents</span></h2>
+      </div>
+      <div style="display:grid;grid-template-columns:repeat(2,1fr);gap:12px;">
+        <sc-for list="{{ formats }}" as="doc" hint-placeholder-count="7">
+          <a href="{{ doc.href }}" download style="display:flex;align-items:center;gap:14px;padding:16px 18px;border:1px solid #eef1f5;border-radius:12px;text-decoration:none;color:#1c2b39;background:#fbfcfe;">
+            <span style="width:38px;height:38px;border-radius:9px;background:#f4f6f9;border:1px solid #e7ecf2;display:flex;align-items:center;justify-content:center;color:#c49a3c;font-size:16px;flex-shrink:0;">⤓</span>
+            <span style="flex:1;font-weight:600;font-size:14.5px;">{{ doc.name }}</span>
+            <span style="font-size:11.5px;color:#94a3b2;font-family:'Courier New',monospace;">{{ doc.ext }}</span>
+          </a>
+        </sc-for>
+      </div>
+    </div>
+
+  </section>
+
+  <dc-import name="Footer" hint-size="100%,360px"></dc-import>
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script>
+class Component extends DCLogic {
+  // [display name, exact file name in assets/]
+  wire(list) {
+    return list.map(([name, file]) => ({
+      name,
+      href: ('assets/' + file).split('/').map(encodeURIComponent).join('/'),
+      ext: (file.split('.').pop() || '').toUpperCase(),
+    }));
+  }
+  renderVals() {
+    return {
+      general: this.wire([
+        ['Special Power of Attorney', '01 - Special Power of Attorney.doc'],
+        ['GPA for NRI', '02 - GPA For NRI.doc'],
+        ['Gift Deed for Relative', '03 - Gift Deed For Relative.doc'],
+        ['Agreement to Sale', '04 - Agreement To Sale.doc'],
+        ['Part Payment', '05 - Part Payment.doc'],
+        ['Lease Deed', '12 - Lease Deed.doc'],
+        ['Form 60', '13 - Form 60.doc'],
+      ]),
+      huda: this.wire([
+        ['Application of Plot Possession', '06 - HUDA Application of Plot Possession.doc'],
+        ['Seller NOC (After Permission)', '07 - HUDA Seller NOC After Permission.doc'],
+        ['Affidavit for Reserve Category Allotment', '08 - HUDA Reserve Category Allotment Affidavit.doc'],
+        ['Specimen Signature Affidavit', '09 - HUDA Specimen Signature Affidavit.doc'],
+        ['Advance Receipt', '10 - HUDA Advance Receipt.doc'],
+        ['Agreement to Sale (if sold on attorney)', '11 - HUDA Sale Agreement (Plot Sold on Attorney).doc'],
+        ['Final Joint Affidavit', '14 - HUDA Final Joint Affidavit.doc'],
+        ['Certificate of Possession of Plot', '15 - HUDA Certificate of Possession of Plot.doc'],
+        ['Acceptance of Allotment', '16 - HUDA Acceptance of Allotment.doc'],
+        ['Affidavit for Allotment Money Deposit', '17 - HUDA Allotment Money Deposit Affidavit.doc'],
+        ['Application of Plot Possession (Triplicate)', '18 - HUDA Plot Possession Application (Triplicate).doc'],
+        ['Will', '19 - HUDA Will.doc'],
+        ['Final Affidavit from Purchaser', '20 - HUDA Purchaser Final Affidavit.doc'],
+      ]),
+      formats: this.wire([
+        ['Floor Partition Deed', '21 - Format of Floor Partition Deed (New).docx'],
+        ['Agreement to Sale of Plot in Sushant Lok', '22 - Format of Agreement to Sale of Plot in Sushant Lok (New).docx'],
+        ['Advance Receipt (English)', '23 - Format Advance Receipt English (New).docx'],
+        ['Agreement to Sale of Floors in Private Builder Colony', '24 - Format of Agreement to Sale of Floors in Private Builder Colony (New).docx'],
+        ['Agreement to Sale for Agricultural Land', '25 - Format of Agreement to Sale for Agricultural Land (New).docx'],
+        ['Transfer Deed', '26 - Format of Transfer Deed (New).docx'],
+        ['Agreement to Sale on House in Sushant Lok', '27 - Format of Agreement to Sale on House in Sushant Lok (New).docx'],
+      ]),
+    };
+  }
+}
+</script>
+</body>
+</html>
