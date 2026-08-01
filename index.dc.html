@@ -31,7 +31,7 @@
     /* Full-bleed video hero + liquid-glass panel */
     .hero-wrap{position:relative;overflow:hidden;background:#0e2439;min-height:620px;display:flex;align-items:center;}
     .hero-video{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;z-index:0;}
-    .hero-overlay{position:absolute;inset:0;z-index:0;background:linear-gradient(115deg,rgba(10,26,42,.78) 0%,rgba(14,36,57,.5) 45%,rgba(14,36,57,.28) 100%);}
+    .hero-overlay{position:absolute;inset:0;z-index:0;background:linear-gradient(115deg,rgba(10,26,42,.5) 0%,rgba(14,36,57,.28) 45%,rgba(14,36,57,.1) 100%);}
     .hero-inner{position:relative;z-index:1;width:100%;max-width:1240px;margin:0 auto;padding:96px 24px;}
     .glass-hero{
       max-width:640px;color:#fff;padding:46px 44px;border-radius:26px;
@@ -54,6 +54,15 @@
     .marquee__item img:hover{filter:grayscale(0);opacity:1;}
     @keyframes marquee{from{transform:translateX(0);}to{transform:translateX(-50%);}}
     @media (prefers-reduced-motion:reduce){.marquee__track{animation:none;flex-wrap:wrap;justify-content:center;width:100%;}}
+    /* Infinite reviews carousel (3 visible at a time) */
+    .rev-marquee{overflow:hidden;-webkit-mask-image:linear-gradient(90deg,transparent,#000 5%,#000 95%,transparent);mask-image:linear-gradient(90deg,transparent,#000 5%,#000 95%,transparent);}
+    .rev-track{display:flex;width:max-content;animation:marquee 36s linear infinite;}
+    .rev-marquee:hover .rev-track{animation-play-state:paused;}
+    .rev-item{flex:0 0 auto;width:392px;box-sizing:border-box;padding:14px 12px;}
+    .rev-card{background:#fff;border:1px solid #e9edf3;border-radius:16px;padding:26px;box-shadow:0 20px 40px -34px rgba(20,48,77,.5);height:100%;box-sizing:border-box;display:flex;flex-direction:column;}
+    .rev-ava{width:42px;height:42px;border-radius:50%;color:#fff;display:flex;align-items:center;justify-content:center;font-weight:700;font-size:15px;flex-shrink:0;}
+    @media (max-width:820px){.rev-item{width:320px;}}
+    @media (prefers-reduced-motion:reduce){.rev-track{animation:none;flex-wrap:wrap;justify-content:center;width:100%;}}
   </style>
 </helmet>
 <div style="font-family:'Plus Jakarta Sans',sans-serif;color:#1c2b39;background:#fff;">
@@ -85,9 +94,15 @@
   <!-- 2. COMPANY BENCHMARKS -->
   <section style="background:#0e2439;color:#fff;">
     <div style="max-width:1240px;margin:0 auto;padding:56px 24px;display:grid;grid-template-columns:repeat(3,1fr);gap:24px;text-align:center;">
-      <div style="padding:20px;"><div style="font-family:'Sora',sans-serif;font-weight:800;font-size:52px;color:#d9b45f;">900</div><div style="font-size:15px;color:#c7d2df;letter-spacing:.02em;margin-top:6px;">Properties in hand</div></div>
-      <div style="padding:20px;border-left:1px solid #1c3550;border-right:1px solid #1c3550;"><div style="font-family:'Sora',sans-serif;font-weight:800;font-size:52px;color:#d9b45f;">25</div><div style="font-size:15px;color:#c7d2df;letter-spacing:.02em;margin-top:6px;">Team strength</div></div>
-      <div style="padding:20px;"><div style="font-family:'Sora',sans-serif;font-weight:800;font-size:52px;color:#d9b45f;">1200</div><div style="font-size:15px;color:#c7d2df;letter-spacing:.02em;margin-top:6px;">Happy clients</div></div>
+      <div style="padding:20px;">
+        <svg width="46" height="46" viewBox="0 0 24 24" fill="none" stroke="#d9b45f" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" style="margin:0 auto 12px;display:block;"><path d="M3 21h18"/><path d="M6 21V5a2 2 0 0 1 2-2h8a2 2 0 0 1 2 2v16"/><path d="M9 8h1M9 12h1M9 16h1M14 8h1M14 12h1M14 16h1"/></svg>
+        <div style="font-family:'Sora',sans-serif;font-weight:800;font-size:52px;color:#d9b45f;line-height:1;">900</div><div style="font-size:15px;color:#c7d2df;letter-spacing:.02em;margin-top:8px;">Properties in hand</div></div>
+      <div style="padding:20px;border-left:1px solid #1c3550;border-right:1px solid #1c3550;">
+        <svg width="46" height="46" viewBox="0 0 24 24" fill="none" stroke="#d9b45f" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" style="margin:0 auto 12px;display:block;"><path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M22 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg>
+        <div style="font-family:'Sora',sans-serif;font-weight:800;font-size:52px;color:#d9b45f;line-height:1;">25</div><div style="font-size:15px;color:#c7d2df;letter-spacing:.02em;margin-top:8px;">Team strength</div></div>
+      <div style="padding:20px;">
+        <svg width="46" height="46" viewBox="0 0 24 24" fill="none" stroke="#d9b45f" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" style="margin:0 auto 12px;display:block;"><circle cx="12" cy="12" r="10"/><path d="M8 14s1.5 2 4 2 4-2 4-2"/><path d="M9 9h.01M15 9h.01"/></svg>
+        <div style="font-family:'Sora',sans-serif;font-weight:800;font-size:52px;color:#d9b45f;line-height:1;">1200</div><div style="font-size:15px;color:#c7d2df;letter-spacing:.02em;margin-top:8px;">Happy clients</div></div>
     </div>
   </section>
 
@@ -156,49 +171,35 @@
       <h2 style="font-family:'Sora',sans-serif;font-weight:700;font-size:38px;letter-spacing:-.01em;margin:14px 0 6px;">Our Sweet Testimonials</h2>
       <p style="font-size:15px;color:#64748b;margin:0;">Verified Google reviews from our valued clients</p>
     </div>
-    <div style="display:grid;grid-template-columns:repeat(4,1fr);gap:20px;">
-      <div style="background:#fff;border:1px solid #e9edf3;border-radius:16px;padding:24px;box-shadow:0 20px 40px -34px rgba(20,48,77,.5);display:flex;flex-direction:column;justify-space-between;">
-        <div>
-          <div style="color:#c49a3c;font-size:18px;margin-bottom:12px;">★★★★★</div>
-          <p style="font-size:14px;line-height:1.7;color:#3a4a5a;margin:0 0 20px;">"Dealing with Deep Real Estate is very amazing experience..Very helpful staff and owner is very responsible and supportive.Will highly recommend it to others.Thankyou"</p>
-        </div>
-        <div style="display:flex;align-items:center;gap:12px;border-top:1px solid #f0f4f8;padding-top:14px;">
-          <span style="width:40px;height:40px;border-radius:50%;background:#14304d;color:#d9b45f;display:flex;align-items:center;justify-content:center;font-weight:700;font-size:15px;">N</span>
-          <div><div style="font-weight:700;font-size:14px;color:#1c2b39;">Neeta Rani</div><div style="font-size:12px;color:#94a3b2;">Google Reviewer</div></div>
-        </div>
-      </div>
-      <div style="background:#fff;border:1px solid #e9edf3;border-radius:16px;padding:24px;box-shadow:0 20px 40px -34px rgba(20,48,77,.5);display:flex;flex-direction:column;justify-space-between;">
-        <div>
-          <div style="color:#c49a3c;font-size:18px;margin-bottom:12px;">★★★★★</div>
-          <p style="font-size:14px;line-height:1.7;color:#3a4a5a;margin:0 0 20px;">"One of the best real estate broker in Gurugram. Hardworking honest and quality conscience builder."</p>
-        </div>
-        <div style="display:flex;align-items:center;gap:12px;border-top:1px solid #f0f4f8;padding-top:14px;">
-          <span style="width:40px;height:40px;border-radius:50%;background:#14304d;color:#d9b45f;display:flex;align-items:center;justify-content:center;font-weight:700;font-size:15px;">A</span>
-          <div><div style="font-weight:700;font-size:14px;color:#1c2b39;">Anil kumar Sharma</div><div style="font-size:12px;color:#94a3b2;">Google Reviewer</div></div>
-        </div>
-      </div>
-      <div style="background:#fff;border:1px solid #e9edf3;border-radius:16px;padding:24px;box-shadow:0 20px 40px -34px rgba(20,48,77,.5);display:flex;flex-direction:column;justify-space-between;">
-        <div>
-          <div style="color:#c49a3c;font-size:18px;margin-bottom:12px;">★★★★★</div>
-          <p style="font-size:14px;line-height:1.7;color:#3a4a5a;margin:0 0 20px;">"Excellent experience 👏 👌 dealing with property consultants. Fair deal"</p>
-        </div>
-        <div style="display:flex;align-items:center;gap:12px;border-top:1px solid #f0f4f8;padding-top:14px;">
-          <span style="width:40px;height:40px;border-radius:50%;background:#14304d;color:#d9b45f;display:flex;align-items:center;justify-content:center;font-weight:700;font-size:15px;">A</span>
-          <div><div style="font-weight:700;font-size:14px;color:#1c2b39;">anamika wadhera</div><div style="font-size:12px;color:#94a3b2;">Google Reviewer</div></div>
-        </div>
-      </div>
-      <div style="background:#fff;border:1px solid #e9edf3;border-radius:16px;padding:24px;box-shadow:0 20px 40px -34px rgba(20,48,77,.5);display:flex;flex-direction:column;justify-space-between;">
-        <div>
-          <div style="color:#c49a3c;font-size:18px;margin-bottom:12px;">★★★★★</div>
-          <p style="font-size:14px;line-height:1.7;color:#3a4a5a;margin:0 0 20px;">"Company do good work with efforts and they are try to give you as you want."</p>
-        </div>
-        <div style="display:flex;align-items:center;gap:12px;border-top:1px solid #f0f4f8;padding-top:14px;">
-          <span style="width:40px;height:40px;border-radius:50%;background:#14304d;color:#d9b45f;display:flex;align-items:center;justify-content:center;font-weight:700;font-size:15px;">A</span>
-          <div><div style="font-weight:700;font-size:14px;color:#1c2b39;">Abhishek Chauhan</div><div style="font-size:12px;color:#94a3b2;">Google Reviewer</div></div>
-        </div>
-      </div>
-    </div>
   </section>
+  <div class="rev-marquee" style="padding-bottom:56px;">
+    <div class="rev-track">
+      <sc-for list="{{ reviews }}" as="r">
+        <div class="rev-item">
+          <div class="rev-card">
+            <div style="color:#c49a3c;font-size:18px;margin-bottom:12px;">★★★★★</div>
+            <p style="font-size:14px;line-height:1.7;color:#3a4a5a;margin:0 0 20px;flex:1;">{{ r.text }}</p>
+            <div style="display:flex;align-items:center;gap:12px;border-top:1px solid #f0f4f8;padding-top:14px;">
+              <span class="rev-ava" style="background:{{ r.bg }};">{{ r.initial }}</span>
+              <div><div style="font-weight:700;font-size:14px;color:#1c2b39;">{{ r.name }}</div><div style="font-size:12px;color:#94a3b2;">Google Reviewer</div></div>
+            </div>
+          </div>
+        </div>
+      </sc-for>
+      <sc-for list="{{ reviews }}" as="r">
+        <div class="rev-item" aria-hidden="true">
+          <div class="rev-card">
+            <div style="color:#c49a3c;font-size:18px;margin-bottom:12px;">★★★★★</div>
+            <p style="font-size:14px;line-height:1.7;color:#3a4a5a;margin:0 0 20px;flex:1;">{{ r.text }}</p>
+            <div style="display:flex;align-items:center;gap:12px;border-top:1px solid #f0f4f8;padding-top:14px;">
+              <span class="rev-ava" style="background:{{ r.bg }};">{{ r.initial }}</span>
+              <div><div style="font-weight:700;font-size:14px;color:#1c2b39;">{{ r.name }}</div><div style="font-size:12px;color:#94a3b2;">Google Reviewer</div></div>
+            </div>
+          </div>
+        </div>
+      </sc-for>
+    </div>
+  </div>
 
   <!-- 5. FEATURED PROPERTIES -->
   <section style="background:#f4f6f9;">
@@ -304,11 +305,20 @@ class Component extends DCLogic {
       ['Universal', 'universal_logo.gif'], ['KLJ', 'Logo_KLJ.gif'],
     ].map(([name, file]) => ({ name, src: 'assets/partners/' + file }));
   }
+  reviews() {
+    return [
+      { text: '"Dealing with Deep Real Estate is very amazing experience..Very helpful staff and owner is very responsible and supportive.Will highly recommend it to others.Thankyou"', name: 'Neeta Rani', initial: 'N', bg: '#14304d' },
+      { text: '"One of the best real estate broker in Gurugram. Hardworking honest and quality conscience builder."', name: 'Anil kumar Sharma', initial: 'A', bg: '#0e7c66' },
+      { text: '"Excellent experience 👏 👌 dealing with property consultants. Fair deal"', name: 'anamika wadhera', initial: 'A', bg: '#9a6a2b' },
+      { text: '"Company do good work with efforts and they are try to give you as you want."', name: 'Abhishek Chauhan', initial: 'A', bg: '#6b3f78' },
+    ];
+  }
   renderVals() {
     return {
       sent: this.state.sent,
       onSubmit: (e) => { e.preventDefault(); this.setState({ sent: true }); },
       partners: this.partners(),
+      reviews: this.reviews(),
     };
   }
 }

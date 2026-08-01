@@ -15,7 +15,11 @@
     '@keyframes dcEnter{from{opacity:0;transform:translateX(46px)}to{opacity:1;transform:translateX(0)}}' +
     '@keyframes dcExit{from{opacity:1;transform:translateX(0)}to{opacity:0;transform:translateX(-46px)}}' +
     '#dc-root{animation:dcEnter .40s cubic-bezier(.22,.61,.36,1) both}' +
-    '#dc-root.dc-leaving{animation:dcExit .26s ease both}';
+    '#dc-root.dc-leaving{animation:dcExit .26s ease both}' +
+    // Pop-out on hover for anything clickable so users can tell it's interactive.
+    'a,button,[role="button"],label:has(select),select,summary{transition:transform .18s ease,box-shadow .18s ease}' +
+    'a:hover,button:hover,[role="button"]:hover{transform:translateY(-2px) scale(1.03)}' +
+    'a:active,button:active,[role="button"]:active{transform:translateY(0) scale(.99)}';
   document.head.appendChild(css);
 
   document.addEventListener('click', function (e) {
