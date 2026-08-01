@@ -14,24 +14,18 @@
   <link href="https://fonts.googleapis.com/css2?family=Sora:wght@400;500;600;700;800&family=Plus+Jakarta+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
 </helmet>
 <header style="position:sticky;top:0;z-index:100;font-family:'Plus Jakarta Sans',sans-serif;">
-  <div style="background:#0e2439;color:#c7d2df;font-size:12.5px;letter-spacing:.02em;">
-    <div style="max-width:1240px;margin:0 auto;padding:8px 24px;display:flex;align-items:center;justify-content:space-between;gap:16px;flex-wrap:wrap;">
+  <div style="background:#f7f9fc;color:#64748b;font-size:12.5px;letter-spacing:.02em;border-bottom:1px solid #edf1f6;">
+    <div style="max-width:1240px;margin:0 auto;padding:9px 24px;display:flex;align-items:center;justify-content:space-between;gap:16px;flex-wrap:wrap;">
       <div style="display:flex;align-items:center;gap:20px;flex-wrap:wrap;">
-        <a href="tel:+911244080100" style="display:flex;align-items:center;gap:7px;color:#c7d2df;text-decoration:none;">
-          <span style="color:#d9b45f;">☏</span> +91-124-4080100
+        <a href="tel:+911244080100" style="display:flex;align-items:center;gap:7px;color:#14304d;font-weight:600;text-decoration:none;">
+          <span style="color:#a87f28;">☏</span> +91-124-4080100
         </a>
-        <span style="opacity:.35;">|</span>
-        <a href="mailto:info@deeprealestate.in" style="display:flex;align-items:center;gap:7px;color:#c7d2df;text-decoration:none;">
-          <span style="color:#d9b45f;">✉</span> info@deeprealestate.in
+        <span style="opacity:.3;">|</span>
+        <a href="mailto:info@deeprealestate.in" style="display:flex;align-items:center;gap:7px;color:#14304d;font-weight:600;text-decoration:none;">
+          <span style="color:#a87f28;">✉</span> info@deeprealestate.in
         </a>
       </div>
-      <div style="display:flex;align-items:center;gap:16px;">
-        <span style="color:#8ea2b5;">Fully-licensed Haryana real-estate agency · Est. 2005</span>
-        <div style="display:flex;gap:10px;">
-          <a href="#" aria-label="Facebook" style="color:#c7d2df;text-decoration:none;">Fb</a>
-          <a href="#" aria-label="Instagram" style="color:#c7d2df;text-decoration:none;">Ig</a>
-        </div>
-      </div>
+      <span style="color:#94a3b2;">Fully-licensed Haryana real-estate agency · Est. 2005</span>
     </div>
   </div>
   <div style="background:#ffffff;border-bottom:1px solid #e3e8ef;">
@@ -46,16 +40,16 @@
           <button onClick="{{ toggleProjects }}" style="font:inherit;cursor:pointer;background:none;border:none;padding:8px 12px;color:#1c2b39;border-radius:8px;display:flex;align-items:center;gap:5px;">Projects <span style="font-size:9px;color:#8a94a3;">▾</span><sc-if value="{{ isProjects }}" hint-placeholder-val="{{ true }}"><span style="position:absolute;left:12px;right:22px;bottom:2px;height:2px;background:#c49a3c;border-radius:2px;"></span></sc-if></button>
           <sc-if value="{{ projectsOpen }}">
             <div style="position:absolute;top:calc(100% + 8px);left:0;min-width:210px;background:#fff;border:1px solid #e3e8ef;border-radius:12px;box-shadow:0 18px 44px -18px rgba(20,48,77,.28);padding:8px;display:flex;flex-direction:column;">
-              <a href="projects.dc.html" style="padding:10px 12px;color:#1c2b39;text-decoration:none;border-radius:8px;font-size:14px;">All Properties</a>
-              <a href="projects.dc.html" style="padding:10px 12px;color:#1c2b39;text-decoration:none;border-radius:8px;font-size:14px;">Residential</a>
-              <a href="projects.dc.html" style="padding:10px 12px;color:#1c2b39;text-decoration:none;border-radius:8px;font-size:14px;">Commercial</a>
-              <a href="projects.dc.html" style="padding:10px 12px;color:#1c2b39;text-decoration:none;border-radius:8px;font-size:14px;">Plots</a>
+              <a href="projects.dc.html#all" style="padding:10px 12px;color:#1c2b39;text-decoration:none;border-radius:8px;font-size:14px;">All Properties</a>
+              <a href="projects.dc.html#residential" style="padding:10px 12px;color:#1c2b39;text-decoration:none;border-radius:8px;font-size:14px;">Residential</a>
+              <a href="projects.dc.html#commercial" style="padding:10px 12px;color:#1c2b39;text-decoration:none;border-radius:8px;font-size:14px;">Commercial</a>
+              <a href="projects.dc.html#plots" style="padding:10px 12px;color:#1c2b39;text-decoration:none;border-radius:8px;font-size:14px;">Plots</a>
             </div>
           </sc-if>
         </div>
         <a href="maps.dc.html" style="position:relative;padding:8px 12px;color:#1c2b39;text-decoration:none;border-radius:8px;">Maps<sc-if value="{{ isMaps }}" hint-placeholder-val="{{ true }}"><span style="position:absolute;left:12px;right:12px;bottom:2px;height:2px;background:#c49a3c;border-radius:2px;"></span></sc-if></a>
         <div style="position:relative;">
-          <button onClick="{{ toggleMore }}" style="font:inherit;cursor:pointer;background:none;border:none;padding:8px 12px;color:#1c2b39;border-radius:8px;display:flex;align-items:center;gap:5px;">More <span style="font-size:9px;color:#8a94a3;">▾</span></button>
+          <button onClick="{{ toggleMore }}" style="font:inherit;cursor:pointer;background:none;border:none;padding:8px 12px;color:#1c2b39;border-radius:8px;display:flex;align-items:center;gap:5px;position:relative;">More <span style="font-size:9px;color:#8a94a3;">▾</span><sc-if value="{{ isMore }}"><span style="position:absolute;left:12px;right:22px;bottom:2px;height:2px;background:#c49a3c;border-radius:2px;"></span></sc-if></button>
           <sc-if value="{{ moreOpen }}">
             <div style="position:absolute;top:calc(100% + 8px);left:0;min-width:210px;background:#fff;border:1px solid #e3e8ef;border-radius:12px;box-shadow:0 18px 44px -18px rgba(20,48,77,.28);padding:8px;display:flex;flex-direction:column;">
               <a href="documents.dc.html" style="padding:10px 12px;color:#1c2b39;text-decoration:none;border-radius:8px;font-size:14px;">Documents</a>
@@ -82,6 +76,8 @@ class Component extends DCLogic {
     return {
       isHome: a === 'home', isAbout: a === 'about', isProjects: a === 'projects',
       isMaps: a === 'maps', isContact: a === 'contact', isSupport: a === 'support',
+      // documents / faq / privacy / terms all live under the "More" dropdown
+      isMore: ['documents', 'faq', 'privacy', 'terms'].indexOf(a) !== -1,
       projectsOpen: this.state.open === 'projects',
       moreOpen: this.state.open === 'more',
       toggleProjects: () => toggle('projects'),

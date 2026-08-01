@@ -77,7 +77,7 @@
     <div class="hero-inner">
       <div class="glass-hero">
         <span style="display:inline-flex;align-items:center;gap:8px;background:rgba(255,255,255,.12);border:1px solid rgba(255,255,255,.22);padding:7px 14px;border-radius:100px;font-size:12.5px;letter-spacing:.06em;text-transform:uppercase;color:#e7c877;font-weight:600;">Gurugram · Manesar · Dharuhera · Sohna</span>
-        <h1 style="font-family:'Sora',sans-serif;font-weight:800;font-size:54px;line-height:1.06;letter-spacing:-.02em;margin:22px 0 20px;color:#fff;">Welcome to<br>Deep Realestate</h1>
+        <h1 style="font-family:'Sora',sans-serif;font-weight:800;font-size:54px;line-height:1.06;letter-spacing:-.02em;margin:22px 0 20px;color:#fff;" data-typed><span data-type-line>Welcome to</span><br><span data-type-line>Deep Realestate</span></h1>
         <p style="font-size:18px;line-height:1.65;color:#e6edf4;max-width:520px;margin:0 0 30px;">Your search for the best suitable property as per your budget and desired location ends here. We have best Industry's top talent with technology to make the search and sell experience intelligent and seamless.</p>
         <div style="display:flex;gap:14px;flex-wrap:wrap;">
           <a href="projects.dc.html" style="background:#c49a3c;color:#14304d;font-weight:700;font-size:15px;text-decoration:none;padding:15px 26px;border-radius:11px;box-shadow:0 14px 30px -14px rgba(196,154,60,.8);">Browse Properties</a>
@@ -92,17 +92,17 @@
   </section>
 
   <!-- 2. COMPANY BENCHMARKS -->
-  <section style="background:#0e2439;color:#fff;">
+  <section style="background:#f7f9fc url('assets/patterns/pattern-light.jpg') repeat;color:#14304d;border-top:1px solid #e9edf3;border-bottom:1px solid #e9edf3;">
     <div style="max-width:1240px;margin:0 auto;padding:56px 24px;display:grid;grid-template-columns:repeat(3,1fr);gap:24px;text-align:center;">
       <div style="padding:20px;">
         <svg width="46" height="46" viewBox="0 0 24 24" fill="none" stroke="#d9b45f" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" style="margin:0 auto 12px;display:block;"><path d="M3 21h18"/><path d="M6 21V5a2 2 0 0 1 2-2h8a2 2 0 0 1 2 2v16"/><path d="M9 8h1M9 12h1M9 16h1M14 8h1M14 12h1M14 16h1"/></svg>
-        <div style="font-family:'Sora',sans-serif;font-weight:800;font-size:52px;color:#d9b45f;line-height:1;">900</div><div style="font-size:15px;color:#c7d2df;letter-spacing:.02em;margin-top:8px;">Properties in hand</div></div>
-      <div style="padding:20px;border-left:1px solid #1c3550;border-right:1px solid #1c3550;">
+        <div style="font-family:'Sora',sans-serif;font-weight:800;font-size:52px;color:#a87f28;line-height:1;" data-count="900">900</div><div style="font-size:15px;color:#64748b;letter-spacing:.02em;margin-top:8px;">Properties in hand</div></div>
+      <div style="padding:20px;border-left:1px solid #e3e8ef;border-right:1px solid #e3e8ef;">
         <svg width="46" height="46" viewBox="0 0 24 24" fill="none" stroke="#d9b45f" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" style="margin:0 auto 12px;display:block;"><path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M22 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg>
-        <div style="font-family:'Sora',sans-serif;font-weight:800;font-size:52px;color:#d9b45f;line-height:1;">25</div><div style="font-size:15px;color:#c7d2df;letter-spacing:.02em;margin-top:8px;">Team strength</div></div>
+        <div style="font-family:'Sora',sans-serif;font-weight:800;font-size:52px;color:#a87f28;line-height:1;" data-count="25">25</div><div style="font-size:15px;color:#64748b;letter-spacing:.02em;margin-top:8px;">Team strength</div></div>
       <div style="padding:20px;">
         <svg width="46" height="46" viewBox="0 0 24 24" fill="none" stroke="#d9b45f" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" style="margin:0 auto 12px;display:block;"><circle cx="12" cy="12" r="10"/><path d="M8 14s1.5 2 4 2 4-2 4-2"/><path d="M9 9h.01M15 9h.01"/></svg>
-        <div style="font-family:'Sora',sans-serif;font-weight:800;font-size:52px;color:#d9b45f;line-height:1;">1200</div><div style="font-size:15px;color:#c7d2df;letter-spacing:.02em;margin-top:8px;">Happy clients</div></div>
+        <div style="font-family:'Sora',sans-serif;font-weight:800;font-size:52px;color:#a87f28;line-height:1;" data-count="1200">1200</div><div style="font-size:15px;color:#64748b;letter-spacing:.02em;margin-top:8px;">Happy clients</div></div>
     </div>
   </section>
 
@@ -171,8 +171,7 @@
       <h2 style="font-family:'Sora',sans-serif;font-weight:700;font-size:38px;letter-spacing:-.01em;margin:14px 0 6px;">Our Sweet Testimonials</h2>
       <p style="font-size:15px;color:#64748b;margin:0;">Verified Google reviews from our valued clients</p>
     </div>
-  </section>
-  <div class="rev-marquee" style="padding-bottom:56px;">
+  <div class="rev-marquee">
     <div class="rev-track">
       <sc-for list="{{ reviews }}" as="r">
         <div class="rev-item">
@@ -198,8 +197,9 @@
           </div>
         </div>
       </sc-for>
+      </div>
     </div>
-  </div>
+  </section>
 
   <!-- 5. FEATURED PROPERTIES -->
   <section style="background:#f4f6f9;">
@@ -257,7 +257,7 @@
       <div style="background:#f4f6f9;border:1px solid #e9edf3;border-radius:16px;padding:28px 24px;position:relative;"><div style="font-family:'Sora',sans-serif;font-weight:800;font-size:15px;color:#c49a3c;">01</div><div style="width:52px;height:52px;border-radius:13px;background:#14304d;color:#d9b45f;display:flex;align-items:center;justify-content:center;font-size:22px;margin:16px 0 14px;">☏</div><h3 style="font-family:'Sora',sans-serif;font-weight:600;font-size:18px;margin:0 0 8px;">Reach Us</h3><p style="font-size:14px;line-height:1.6;color:#64748b;margin:0;">Call or send an inquiry — we respond within 15 minutes during business hours.</p></div>
       <div style="background:#f4f6f9;border:1px solid #e9edf3;border-radius:16px;padding:28px 24px;"><div style="font-family:'Sora',sans-serif;font-weight:800;font-size:15px;color:#c49a3c;">02</div><div style="width:52px;height:52px;border-radius:13px;background:#14304d;color:#d9b45f;display:flex;align-items:center;justify-content:center;font-size:22px;margin:16px 0 14px;">⌖</div><h3 style="font-family:'Sora',sans-serif;font-weight:600;font-size:18px;margin:0 0 8px;">Choose Location</h3><p style="font-size:14px;line-height:1.6;color:#64748b;margin:0;">Pick your preferred sector or locality across the Gurgaon market.</p></div>
       <div style="background:#f4f6f9;border:1px solid #e9edf3;border-radius:16px;padding:28px 24px;"><div style="font-family:'Sora',sans-serif;font-weight:800;font-size:15px;color:#c49a3c;">03</div><div style="width:52px;height:52px;border-radius:13px;background:#14304d;color:#d9b45f;display:flex;align-items:center;justify-content:center;font-size:22px;margin:16px 0 14px;">⌂</div><h3 style="font-family:'Sora',sans-serif;font-weight:600;font-size:18px;margin:0 0 8px;">Choose Property</h3><p style="font-size:14px;line-height:1.6;color:#64748b;margin:0;">Shortlist from properties matched to your budget and requirements.</p></div>
-      <div style="background:#14304d;border:1px solid #14304d;border-radius:16px;padding:28px 24px;"><div style="font-family:'Sora',sans-serif;font-weight:800;font-size:15px;color:#d9b45f;">04</div><div style="width:52px;height:52px;border-radius:13px;background:rgba(255,255,255,.1);color:#d9b45f;display:flex;align-items:center;justify-content:center;font-size:22px;margin:16px 0 14px;">✓</div><h3 style="font-family:'Sora',sans-serif;font-weight:600;font-size:18px;margin:0 0 8px;color:#fff;">Confirmation</h3><p style="font-size:14px;line-height:1.6;color:#aec0d1;margin:0;">Close the deal with transparent documentation and full support.</p></div>
+      <div style="background:#fff;border:1px solid #e3d5b4;border-radius:16px;padding:28px 24px;box-shadow:0 20px 40px -34px rgba(196,154,60,.6);"><div style="font-family:'Sora',sans-serif;font-weight:800;font-size:15px;color:#a87f28;">04</div><div style="width:52px;height:52px;border-radius:13px;background:#14304d;color:#d9b45f;display:flex;align-items:center;justify-content:center;font-size:22px;margin:16px 0 14px;">✓</div><h3 style="font-family:'Sora',sans-serif;font-weight:600;font-size:18px;margin:0 0 8px;color:#14304d;">Confirmation</h3><p style="font-size:14px;line-height:1.6;color:#64748b;margin:0;">Close the deal with transparent documentation and full support.</p></div>
     </div>
   </section>
 
@@ -282,10 +282,10 @@
   </section>
 
   <!-- 6d. CTA -->
-  <section style="background:linear-gradient(120deg,#14304d,#0e2439);color:#fff;">
+  <section style="background:#fdf8ee;color:#14304d;border-top:1px solid #f0e6d2;">
     <div style="max-width:1240px;margin:0 auto;padding:64px 24px;display:flex;align-items:center;justify-content:space-between;gap:32px;flex-wrap:wrap;">
-      <div><h2 style="font-family:'Sora',sans-serif;font-weight:700;font-size:32px;margin:0 0 8px;">Ready to buy or sell in Gurgaon?</h2><p style="font-size:16px;color:#c7d2df;margin:0;">Get free, no-commission assistance from a licensed team.</p></div>
-      <div style="display:flex;gap:14px;flex-wrap:wrap;"><a href="#contact" style="background:#c49a3c;color:#14304d;font-weight:700;font-size:15px;text-decoration:none;padding:15px 28px;border-radius:11px;">Get in touch</a><a href="tel:+919810922338" style="background:rgba(255,255,255,.08);border:1px solid rgba(255,255,255,.22);color:#fff;font-weight:600;font-size:15px;text-decoration:none;padding:15px 28px;border-radius:11px;">Call +91-9810922338</a></div>
+      <div><h2 style="font-family:'Sora',sans-serif;font-weight:700;font-size:32px;margin:0 0 8px;">Ready to buy or sell in Gurgaon?</h2><p style="font-size:16px;color:#64748b;margin:0;">Get free, no-commission assistance from a licensed team.</p></div>
+      <div style="display:flex;gap:14px;flex-wrap:wrap;"><a href="#contact" style="background:#c49a3c;color:#14304d;font-weight:700;font-size:15px;text-decoration:none;padding:15px 28px;border-radius:11px;">Get in touch</a><a href="tel:+919810922338" style="background:#fff;border:1px solid #e3d5b4;color:#14304d;font-weight:600;font-size:15px;text-decoration:none;padding:15px 28px;border-radius:11px;">Call +91-9810922338</a></div>
     </div>
   </section>
 
@@ -308,9 +308,9 @@ class Component extends DCLogic {
   reviews() {
     return [
       { text: '"Dealing with Deep Real Estate is very amazing experience..Very helpful staff and owner is very responsible and supportive.Will highly recommend it to others.Thankyou"', name: 'Neeta Rani', initial: 'N', bg: '#14304d' },
-      { text: '"One of the best real estate broker in Gurugram. Hardworking honest and quality conscience builder."', name: 'Anil kumar Sharma', initial: 'A', bg: '#0e7c66' },
-      { text: '"Excellent experience 👏 👌 dealing with property consultants. Fair deal"', name: 'anamika wadhera', initial: 'A', bg: '#9a6a2b' },
-      { text: '"Company do good work with efforts and they are try to give you as you want."', name: 'Abhishek Chauhan', initial: 'A', bg: '#6b3f78' },
+      { text: '"One of the best real estate broker in Gurugram. Hardworking honest and quality conscience builder."', name: 'Anil kumar Sharma', initial: 'A', bg: '#2c5f7a' },
+      { text: '"Excellent experience 👏 👌 dealing with property consultants. Fair deal"', name: 'anamika wadhera', initial: 'A', bg: '#a87f28' },
+      { text: '"Company do good work with efforts and they are try to give you as you want."', name: 'Abhishek Chauhan', initial: 'A', bg: '#4a5a6a' },
     ];
   }
   renderVals() {

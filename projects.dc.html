@@ -17,46 +17,42 @@
 <div style="font-family:'Plus Jakarta Sans',sans-serif;color:#1c2b39;background:#fff;">
   <dc-import name="Header" active="projects" hint-size="100%,110px"></dc-import>
 
-  <section style="background:linear-gradient(160deg,#0e2439,#14304d);color:#fff;">
+  <section style="background:#f7f9fc url('assets/patterns/pattern-light.jpg') repeat;color:#14304d;border-bottom:1px solid #e9edf3;">
     <div style="max-width:1240px;margin:0 auto;padding:66px 24px;">
-      <div style="font-size:13px;color:#93a4b6;margin-bottom:14px;"><a href="index.dc.html" style="color:#93a4b6;text-decoration:none;">Home</a> · Properties</div>
+      <div style="font-size:13px;color:#94a3b2;margin-bottom:14px;"><a href="index.dc.html" style="color:#94a3b2;text-decoration:none;">Home</a> · Properties</div>
       <h1 style="font-family:'Sora',sans-serif;font-weight:800;font-size:46px;letter-spacing:-.02em;margin:0 0 16px;">Properties</h1>
-      <p style="font-size:18px;line-height:1.65;color:#c7d2df;max-width:660px;margin:0;">Browse our current residential, commercial and plot listings across the Gurgaon market.</p>
+      <p style="font-size:18px;line-height:1.65;color:#4a5a6a;max-width:660px;margin:0;">Browse our current residential, commercial and plot listings across the Gurgaon market.</p>
     </div>
   </section>
 
   <section style="max-width:1240px;margin:0 auto;padding:40px 24px 0;">
     <div style="display:flex;gap:10px;flex-wrap:wrap;">
-      <span style="background:#14304d;color:#fff;font-weight:600;font-size:14px;padding:10px 20px;border-radius:100px;">All</span>
-      <span style="background:#f4f6f9;border:1px solid #e3e8ef;color:#4a5a6a;font-weight:600;font-size:14px;padding:10px 20px;border-radius:100px;">Residential</span>
-      <span style="background:#f4f6f9;border:1px solid #e3e8ef;color:#4a5a6a;font-weight:600;font-size:14px;padding:10px 20px;border-radius:100px;">Commercial</span>
-      <span style="background:#f4f6f9;border:1px solid #e3e8ef;color:#4a5a6a;font-weight:600;font-size:14px;padding:10px 20px;border-radius:100px;">Plots</span>
+      <sc-for list="{{ filters }}" as="f" hint-placeholder-count="4">
+        <button onClick="{{ f.pick }}" style="{{ f.css }}">{{ f.label }} <span style="opacity:.6;font-weight:500;">{{ f.count }}</span></button>
+      </sc-for>
     </div>
   </section>
 
   <section style="max-width:1240px;margin:0 auto;padding:36px 24px 84px;">
-    <div style="display:grid;grid-template-columns:1fr 1fr;gap:28px;">
-      <a href="property-suncity.dc.html" style="text-decoration:none;color:inherit;background:#fff;border:1px solid #e9edf3;border-radius:18px;overflow:hidden;box-shadow:0 20px 40px -30px rgba(20,48,77,.4);display:block;">
-        <div style="position:relative;aspect-ratio:16/10;overflow:hidden;"><img src="assets/properties/suncity-2.jpg" alt="4 BHK Luxury Floors, Suncity" style="width:100%;height:100%;object-fit:cover;display:block;"></div>
-        <div style="padding:24px;">
-          <span style="display:inline-block;background:#eef4ea;color:#4f7a3a;font-size:12px;font-weight:600;padding:5px 11px;border-radius:100px;">For Sale · Residential</span>
-          <h3 style="font-family:'Sora',sans-serif;font-weight:600;font-size:21px;margin:14px 0 6px;">4 BHK Luxury Floors – Suncity</h3>
-          <div style="font-size:14px;color:#64748b;margin-bottom:16px;">D Block, Suncity, Gurugram, Haryana · ID 112</div>
-          <div style="display:flex;gap:18px;font-size:13.5px;color:#4a5a6a;border-top:1px solid #eef1f5;padding-top:16px;"><span>🛏 4 Beds</span><span>🛁 4 Baths</span><span>▦ 2,664 SqFt</span></div>
-          <div style="display:flex;align-items:center;justify-content:space-between;margin-top:16px;"><span style="font-family:'Sora',sans-serif;font-weight:800;font-size:22px;color:#14304d;">₹5.50 Cr</span><span style="font-size:13px;color:#c49a3c;font-weight:600;">from ₹4.60 Cr</span></div>
-        </div>
-      </a>
-      <a href="property-farmhouse.dc.html" style="text-decoration:none;color:inherit;background:#fff;border:1px solid #e9edf3;border-radius:18px;overflow:hidden;box-shadow:0 20px 40px -30px rgba(20,48,77,.4);display:block;">
-        <div style="position:relative;aspect-ratio:16/10;overflow:hidden;"><img src="assets/properties/farmhouse-1.jpg" alt="Premium Farmhouse plot, Garat Pur Bas" style="width:100%;height:100%;object-fit:cover;display:block;"></div>
-        <div style="padding:24px;">
-          <span style="display:inline-block;background:#eef4ea;color:#4f7a3a;font-size:12px;font-weight:600;padding:5px 11px;border-radius:100px;">For Sale · Farmhouse</span>
-          <h3 style="font-family:'Sora',sans-serif;font-weight:600;font-size:21px;margin:14px 0 6px;">Premium Farmhouse – Garat Pur Bas</h3>
-          <div style="font-size:14px;color:#64748b;margin-bottom:16px;">Village Garat Pur Bas, Gurugram, Haryana · ID 111</div>
-          <div style="display:flex;gap:18px;font-size:13.5px;color:#4a5a6a;border-top:1px solid #eef1f5;padding-top:16px;"><span>▦ 3,000 sq. yards</span><span>⛢ 30m road</span></div>
-          <div style="display:flex;align-items:center;justify-content:space-between;margin-top:16px;"><span style="font-family:'Sora',sans-serif;font-weight:800;font-size:22px;color:#14304d;">On call</span><span style="font-size:13px;color:#c49a3c;font-weight:600;">₹30,000 / sq. yard</span></div>
-        </div>
-      </a>
+    <div style="display:grid;grid-template-columns:1fr 1fr;gap:28px;" data-stagger>
+      <sc-for list="{{ shown }}" as="p" hint-placeholder-count="2">
+        <a href="{{ p.href }}" style="text-decoration:none;color:inherit;background:#fff;border:1px solid #e9edf3;border-radius:18px;overflow:hidden;box-shadow:0 20px 40px -30px rgba(20,48,77,.4);display:block;">
+          <div style="position:relative;aspect-ratio:16/10;overflow:hidden;"><img src="{{ p.img }}" alt="{{ p.title }}" style="width:100%;height:100%;object-fit:cover;display:block;"></div>
+          <div style="padding:24px;">
+            <span style="display:inline-block;background:#eef4ea;color:#4f7a3a;font-size:12px;font-weight:600;padding:5px 11px;border-radius:100px;">{{ p.badge }}</span>
+            <h3 style="font-family:'Sora',sans-serif;font-weight:600;font-size:21px;margin:14px 0 6px;">{{ p.title }}</h3>
+            <div style="font-size:14px;color:#64748b;margin-bottom:16px;">{{ p.place }} · ID {{ p.id }}</div>
+            <div style="display:flex;gap:18px;font-size:13.5px;color:#4a5a6a;border-top:1px solid #eef1f5;padding-top:16px;">
+              <sc-for list="{{ p.specs }}" as="sp"><span>{{ sp }}</span></sc-for>
+            </div>
+            <div style="display:flex;align-items:center;justify-content:space-between;margin-top:16px;"><span style="font-family:'Sora',sans-serif;font-weight:800;font-size:22px;color:#14304d;">{{ p.price }}</span><span style="font-size:13px;color:#a87f28;font-weight:600;">{{ p.sub }}</span></div>
+          </div>
+        </a>
+      </sc-for>
     </div>
+    <sc-if value="{{ isEmpty }}">
+      <div style="text-align:center;padding:56px 20px;color:#64748b;">No properties in this category right now — <a href="contact.dc.html" style="color:#14304d;font-weight:600;">tell us what you're looking for</a> and we'll match you.</div>
+    </sc-if>
     <div style="margin-top:40px;background:#f4f6f9;border:1px dashed #cdd6e0;border-radius:16px;padding:36px;text-align:center;">
       <h3 style="font-family:'Sora',sans-serif;font-weight:600;font-size:20px;margin:0 0 8px;">Looking for something specific?</h3>
       <p style="font-size:15px;color:#64748b;margin:0 0 20px;">New listings are added regularly. Tell us your budget and preferred location and we'll match you.</p>
@@ -67,5 +63,54 @@
   <dc-import name="Footer" hint-size="100%,360px"></dc-import>
 </div>
 </x-dc>
+<script type="text/x-dc" data-dc-script>
+class Component extends DCLogic {
+  state = { cat: 'all' };
+
+  // The header dropdown links to projects.dc.html#residential etc.
+  componentDidMount() {
+    const h = (location.hash || '').replace('#', '').toLowerCase();
+    if (['residential', 'commercial', 'plots'].indexOf(h) !== -1) this.setState({ cat: h });
+  }
+
+  properties() {
+    return [
+      {
+        id: 112, cat: 'residential', href: 'property-suncity.dc.html',
+        img: 'assets/properties/suncity-2.jpg', badge: 'For Sale · Residential',
+        title: '4 BHK Luxury Floors – Suncity', place: 'D Block, Suncity, Gurugram, Haryana',
+        specs: ['🛏 4 Beds', '🛁 4 Baths', '▦ 2,664 SqFt'],
+        price: '₹5.50 Cr', sub: 'from ₹4.60 Cr',
+      },
+      {
+        id: 111, cat: 'plots', href: 'property-farmhouse.dc.html',
+        img: 'assets/properties/farmhouse-1.jpg', badge: 'For Sale · Farmhouse',
+        title: 'Premium Farmhouse – Garat Pur Bas', place: 'Village Garat Pur Bas, Gurugram, Haryana',
+        specs: ['▦ 3,000 sq. yards', '⛢ 30m road'],
+        price: 'On call', sub: '₹30,000 / sq. yard',
+      },
+    ];
+  }
+
+  renderVals() {
+    const all = this.properties();
+    const cat = this.state.cat;
+    const shown = cat === 'all' ? all : all.filter(p => p.cat === cat);
+
+    const on  = 'background:#14304d;color:#fff;border:1px solid #14304d;font-weight:600;font-size:14px;padding:10px 20px;border-radius:100px;cursor:pointer;font-family:inherit;';
+    const off = 'background:#f4f6f9;border:1px solid #e3e8ef;color:#4a5a6a;font-weight:600;font-size:14px;padding:10px 20px;border-radius:100px;cursor:pointer;font-family:inherit;';
+
+    const filters = [['all', 'All'], ['residential', 'Residential'], ['commercial', 'Commercial'], ['plots', 'Plots']]
+      .map(([key, label]) => ({
+        label,
+        count: key === 'all' ? all.length : all.filter(p => p.cat === key).length,
+        css: cat === key ? on : off,
+        pick: () => { this.setState({ cat: key }); try { history.replaceState(null, '', '#' + key); } catch (e) {} },
+      }));
+
+    return { shown, filters, isEmpty: shown.length === 0 };
+  }
+}
+</script>
 </body>
 </html>
