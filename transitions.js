@@ -17,7 +17,9 @@
 
   var css = document.createElement('style');
   css.textContent =
-    'html{scroll-behavior:smooth}' +
+    // clip (not hidden) so the slide in/out never spawns a horizontal scrollbar,
+    // while keeping the viewport as the scroll container so the sticky header works.
+    'html{scroll-behavior:smooth;overflow-x:clip}' +
     '@keyframes dcEnter{from{opacity:0;transform:translateX(46px)}to{opacity:1;transform:translateX(0)}}' +
     '@keyframes dcExit{from{opacity:1;transform:translateX(0)}to{opacity:0;transform:translateX(-46px)}}' +
     '#dc-root{animation:dcEnter .40s cubic-bezier(.22,.61,.36,1) both}' +
@@ -52,6 +54,21 @@
     r.classList.add('dc-leaving');
     setTimeout(function () { location.href = href; }, 250);
   }, true);
+
+  // Back/forward restore: a page navigated away from was mid-exit, so its
+  // #dc-root is frozen slid-out + faded. When the browser restores it (bfcache
+  // via `persisted`, or a normal history nav), clear that state and replay the
+  // enter animation so the page is visible instead of stuck blank.
+  window.addEventListener('pageshow', function (e) {
+    var r = document.getElementById('dc-root');
+    if (!r) return;
+    r.classList.remove('dc-leaving');
+    if (e.persisted) {
+      r.style.animation = 'none';
+      void r.offsetWidth;            // reflow so the re-added animation restarts
+      r.style.animation = '';
+    }
+  });
 
   /* ---------------- helpers ---------------- */
   var io = null;
