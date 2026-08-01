@@ -47,26 +47,49 @@
     </div>
   </section>
 
-  <section style="max-width:1240px;margin:0 auto;padding:24px 24px 84px;display:grid;grid-template-columns:1fr 1fr;gap:44px;align-items:start;">
+  <section style="max-width:1240px;margin:0 auto;padding:24px 24px 84px;display:grid;grid-template-columns:1.1fr .9fr;gap:44px;align-items:start;">
     <div>
-      <h2 style="font-family:'Sora',sans-serif;font-weight:700;font-size:28px;margin:0 0 8px;">Send a message</h2>
-      <p style="font-size:15px;color:#64748b;margin:0 0 24px;">Fill in the form and a member of our team will get back to you.</p>
+      <h2 style="font-family:'Sora',sans-serif;font-weight:700;font-size:28px;margin:0 0 8px;">Send a message / Inquiry</h2>
+      <p style="font-size:15px;color:#64748b;margin:0 0 24px;">Fill out the form below and our team will get back to you shortly.</p>
       <form onSubmit="{{ onSubmit }}" style="display:flex;flex-direction:column;gap:16px;">
         <div style="display:grid;grid-template-columns:1fr 1fr;gap:16px;">
-          <label style="display:flex;flex-direction:column;gap:7px;font-size:13.5px;font-weight:600;color:#3a4a5a;">Name<input required placeholder="Your name" style="padding:13px 15px;border:1px solid #e3e8ef;border-radius:11px;font:inherit;font-size:15px;background:#fbfcfe;outline:none;"></label>
-          <label style="display:flex;flex-direction:column;gap:7px;font-size:13.5px;font-weight:600;color:#3a4a5a;">Phone<input placeholder="Your phone" style="padding:13px 15px;border:1px solid #e3e8ef;border-radius:11px;font:inherit;font-size:15px;background:#fbfcfe;outline:none;"></label>
+          <label style="display:flex;flex-direction:column;gap:7px;font-size:13.5px;font-weight:600;color:#3a4a5a;">Your Name *<input required placeholder="Full name" style="padding:13px 15px;border:1px solid #e3e8ef;border-radius:11px;font:inherit;font-size:15px;background:#fbfcfe;outline:none;"></label>
+          <label style="display:flex;flex-direction:column;gap:7px;font-size:13.5px;font-weight:600;color:#3a4a5a;">Mobile Phone *<input required type="tel" placeholder="+91-9810922338" style="padding:13px 15px;border:1px solid #e3e8ef;border-radius:11px;font:inherit;font-size:15px;background:#fbfcfe;outline:none;"></label>
         </div>
-        <label style="display:flex;flex-direction:column;gap:7px;font-size:13.5px;font-weight:600;color:#3a4a5a;">Email<input required type="email" placeholder="you@example.com" style="padding:13px 15px;border:1px solid #e3e8ef;border-radius:11px;font:inherit;font-size:15px;background:#fbfcfe;outline:none;"></label>
-        <label style="display:flex;flex-direction:column;gap:7px;font-size:13.5px;font-weight:600;color:#3a4a5a;">Message<textarea required rows="5" placeholder="Tell us what you're looking for…" style="padding:13px 15px;border:1px solid #e3e8ef;border-radius:11px;font:inherit;font-size:15px;background:#fbfcfe;outline:none;resize:vertical;"></textarea></label>
-        <button type="submit" style="align-self:flex-start;background:#c49a3c;color:#14304d;font-weight:700;font-size:15px;border:none;cursor:pointer;padding:14px 28px;border-radius:11px;font-family:inherit;">Send message</button>
-        <sc-if value="{{ sent }}"><div style="font-size:14px;color:#4f7a3a;background:#eef4ea;border:1px solid #d6e6cd;border-radius:10px;padding:12px 16px;">Thanks — your message has been noted. We'll be in touch shortly.</div></sc-if>
+        <div style="display:grid;grid-template-columns:1fr 1fr;gap:16px;">
+          <label style="display:flex;flex-direction:column;gap:7px;font-size:13.5px;font-weight:600;color:#3a4a5a;">Email Address *<input required type="email" placeholder="info@example.com" style="padding:13px 15px;border:1px solid #e3e8ef;border-radius:11px;font:inherit;font-size:15px;background:#fbfcfe;outline:none;"></label>
+          <label style="display:flex;flex-direction:column;gap:7px;font-size:13.5px;font-weight:600;color:#3a4a5a;">What is this regarding?<select style="padding:13px 15px;border:1px solid #e3e8ef;border-radius:11px;font:inherit;font-size:15px;background:#fbfcfe;outline:none;color:#3a4a5a;">
+            <option value="buy">Buying Property</option>
+            <option value="sell">Selling Property</option>
+            <option value="valuation">Valuation & Consultation</option>
+            <option value="lease">Rent / Lease</option>
+            <option value="other">General Inquiry</option>
+          </select></label>
+        </div>
+        <div style="display:grid;grid-template-columns:1fr 1fr;gap:16px;">
+          <label style="display:flex;flex-direction:column;gap:7px;font-size:13.5px;font-weight:600;color:#3a4a5a;">Property Type<select style="padding:13px 15px;border:1px solid #e3e8ef;border-radius:11px;font:inherit;font-size:15px;background:#fbfcfe;outline:none;color:#3a4a5a;">
+            <option value="residential">Residential (Floors/Apartments)</option>
+            <option value="plots">Plots / Land</option>
+            <option value="commercial">Commercial</option>
+            <option value="farmhouse">Farmhouse</option>
+          </select></label>
+          <label style="display:flex;flex-direction:column;gap:7px;font-size:13.5px;font-weight:600;color:#3a4a5a;">Location Preference<select style="padding:13px 15px;border:1px solid #e3e8ef;border-radius:11px;font:inherit;font-size:15px;background:#fbfcfe;outline:none;color:#3a4a5a;">
+            <option value="gurugram">Gurugram</option>
+            <option value="manesar">Manesar</option>
+            <option value="dharuhera">Dharuhera</option>
+            <option value="sohna">Sohna</option>
+          </select></label>
+        </div>
+        <label style="display:flex;flex-direction:column;gap:7px;font-size:13.5px;font-weight:600;color:#3a4a5a;">Tell us briefly about your needs *<textarea required rows="4" placeholder="Tell us briefly about your property needs or questions…" style="padding:13px 15px;border:1px solid #e3e8ef;border-radius:11px;font:inherit;font-size:15px;background:#fbfcfe;outline:none;resize:vertical;"></textarea></label>
+        <button type="submit" style="align-self:flex-start;background:#c49a3c;color:#14304d;font-weight:700;font-size:15px;border:none;cursor:pointer;padding:14px 32px;border-radius:11px;font-family:inherit;box-shadow:0 10px 20px -10px rgba(196,154,60,.8);">Submit Inquiry</button>
+        <sc-if value="{{ sent }}"><div style="font-size:14px;color:#4f7a3a;background:#eef4ea;border:1px solid #d6e6cd;border-radius:10px;padding:14px 18px;">Your message was successfully sent! We will reply to you shortly.</div></sc-if>
       </form>
     </div>
     <div>
-      <h2 style="font-family:'Sora',sans-serif;font-weight:700;font-size:28px;margin:0 0 8px;">Find us</h2>
-      <p style="font-size:15px;color:#64748b;margin:0 0 24px;">Sector 57, near Scottish High International School, Gurgaon.</p>
-      <div style="border-radius:16px;overflow:hidden;border:1px solid #e3e8ef;height:420px;background:repeating-linear-gradient(135deg,#eef1f5,#eef1f5 14px,#e5eaf1 14px,#e5eaf1 28px);display:flex;align-items:center;justify-content:center;color:#7c8a9a;font-family:'Courier New',monospace;font-size:12.5px;letter-spacing:.09em;text-transform:uppercase;text-align:center;">
-        <div><div style="font-size:30px;color:#c49a3c;margin-bottom:8px;">⌖</div>Office location map<br>(map embed to be added)</div>
+      <h2 style="font-family:'Sora',sans-serif;font-weight:700;font-size:28px;margin:0 0 8px;">Find us on Map</h2>
+      <p style="font-size:15px;color:#64748b;margin:0 0 20px;">G-564, Sushant Lok-II Extn. Sector 57, Nr. Scottish High, Gurgaon, Haryana-122002</p>
+      <div style="border-radius:16px;overflow:hidden;border:1px solid #e3e8ef;height:440px;box-shadow:0 14px 30px -14px rgba(20,48,77,.2);">
+        <iframe src="https://maps.google.com/maps?q=Deep+Real+Estate+Sector+57+Gurgaon&t=&z=15&ie=UTF8&iwloc=&output=embed" width="100%" height="100%" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
       </div>
     </div>
   </section>

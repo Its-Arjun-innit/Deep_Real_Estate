@@ -56,22 +56,45 @@
     </div>
   </section>
 
-  <!-- 3. CONTACT FORM -->
+  <!-- 3. CONTACT / BUY & SELL QUESTIONNAIRE -->
   <section id="contact" style="background:#f4f6f9;">
-    <div style="max-width:1240px;margin:0 auto;padding:84px 24px;display:grid;grid-template-columns:1.05fr .95fr;gap:48px;align-items:start;">
+    <div style="max-width:1240px;margin:0 auto;padding:84px 24px;display:grid;grid-template-columns:1.1fr .9fr;gap:48px;align-items:start;">
       <div>
         <span style="font-size:12.5px;font-weight:700;letter-spacing:.14em;text-transform:uppercase;color:#c49a3c;">Get in touch</span>
         <h2 style="font-family:'Sora',sans-serif;font-weight:700;font-size:38px;letter-spacing:-.01em;margin:14px 0 12px;">Tell us what you're looking for</h2>
-        <p style="font-size:16px;line-height:1.7;color:#64748b;margin:0 0 26px;">Fill in the form and a member of our team will get back to you — typically within 15 minutes during business hours (9am–10pm).</p>
+        <p style="font-size:16px;line-height:1.7;color:#64748b;margin:0 0 26px;">Fill out our inquiry questionnaire and a member of our licensed team will reach out — typically within 15 minutes during business hours (9am–10pm).</p>
         <form onSubmit="{{ onSubmit }}" style="display:flex;flex-direction:column;gap:16px;">
           <div style="display:grid;grid-template-columns:1fr 1fr;gap:16px;">
-            <label style="display:flex;flex-direction:column;gap:7px;font-size:13.5px;font-weight:600;color:#3a4a5a;">Name<input required placeholder="Your name" style="padding:13px 15px;border:1px solid #e3e8ef;border-radius:11px;font:inherit;font-size:15px;background:#fff;outline:none;"></label>
-            <label style="display:flex;flex-direction:column;gap:7px;font-size:13.5px;font-weight:600;color:#3a4a5a;">Phone<input placeholder="Your phone" style="padding:13px 15px;border:1px solid #e3e8ef;border-radius:11px;font:inherit;font-size:15px;background:#fff;outline:none;"></label>
+            <label style="display:flex;flex-direction:column;gap:7px;font-size:13.5px;font-weight:600;color:#3a4a5a;">Your Name *<input required placeholder="Enter full name" style="padding:13px 15px;border:1px solid #e3e8ef;border-radius:11px;font:inherit;font-size:15px;background:#fff;outline:none;"></label>
+            <label style="display:flex;flex-direction:column;gap:7px;font-size:13.5px;font-weight:600;color:#3a4a5a;">Mobile / Phone *<input required type="tel" placeholder="+91-9999999999" style="padding:13px 15px;border:1px solid #e3e8ef;border-radius:11px;font:inherit;font-size:15px;background:#fff;outline:none;"></label>
           </div>
-          <label style="display:flex;flex-direction:column;gap:7px;font-size:13.5px;font-weight:600;color:#3a4a5a;">Email<input required type="email" placeholder="you@example.com" style="padding:13px 15px;border:1px solid #e3e8ef;border-radius:11px;font:inherit;font-size:15px;background:#fff;outline:none;"></label>
-          <label style="display:flex;flex-direction:column;gap:7px;font-size:13.5px;font-weight:600;color:#3a4a5a;">Message<textarea required rows="4" placeholder="Tell us about the property you want to buy or sell…" style="padding:13px 15px;border:1px solid #e3e8ef;border-radius:11px;font:inherit;font-size:15px;background:#fff;outline:none;resize:vertical;"></textarea></label>
-          <button type="submit" style="align-self:flex-start;background:#c49a3c;color:#14304d;font-weight:700;font-size:15px;border:none;cursor:pointer;padding:14px 28px;border-radius:11px;font-family:inherit;">Send message</button>
-          <sc-if value="{{ sent }}"><div style="font-size:14px;color:#4f7a3a;background:#eef4ea;border:1px solid #d6e6cd;border-radius:10px;padding:12px 16px;">Thanks — your message has been noted. We'll be in touch shortly.</div></sc-if>
+          <div style="display:grid;grid-template-columns:1fr 1fr;gap:16px;">
+            <label style="display:flex;flex-direction:column;gap:7px;font-size:13.5px;font-weight:600;color:#3a4a5a;">Email Address *<input required type="email" placeholder="you@example.com" style="padding:13px 15px;border:1px solid #e3e8ef;border-radius:11px;font:inherit;font-size:15px;background:#fff;outline:none;"></label>
+            <label style="display:flex;flex-direction:column;gap:7px;font-size:13.5px;font-weight:600;color:#3a4a5a;">What is this regarding?<select style="padding:13px 15px;border:1px solid #e3e8ef;border-radius:11px;font:inherit;font-size:15px;background:#fff;outline:none;color:#3a4a5a;">
+              <option value="buy">Buying Property</option>
+              <option value="sell">Selling Property</option>
+              <option value="valuation">Valuation & Consultation</option>
+              <option value="lease">Rent / Lease</option>
+              <option value="other">General Inquiry</option>
+            </select></label>
+          </div>
+          <div style="display:grid;grid-template-columns:1fr 1fr;gap:16px;">
+            <label style="display:flex;flex-direction:column;gap:7px;font-size:13.5px;font-weight:600;color:#3a4a5a;">Property Type<select style="padding:13px 15px;border:1px solid #e3e8ef;border-radius:11px;font:inherit;font-size:15px;background:#fff;outline:none;color:#3a4a5a;">
+              <option value="residential">Residential (Floors/Apartments)</option>
+              <option value="plots">Plots / Land</option>
+              <option value="commercial">Commercial</option>
+              <option value="farmhouse">Farmhouse</option>
+            </select></label>
+            <label style="display:flex;flex-direction:column;gap:7px;font-size:13.5px;font-weight:600;color:#3a4a5a;">Preferred Location<select style="padding:13px 15px;border:1px solid #e3e8ef;border-radius:11px;font:inherit;font-size:15px;background:#fff;outline:none;color:#3a4a5a;">
+              <option value="gurugram">Gurugram</option>
+              <option value="manesar">Manesar</option>
+              <option value="dharuhera">Dharuhera</option>
+              <option value="sohna">Sohna</option>
+            </select></label>
+          </div>
+          <label style="display:flex;flex-direction:column;gap:7px;font-size:13.5px;font-weight:600;color:#3a4a5a;">Tell us briefly about your needs *<textarea required rows="4" placeholder="Mention your requirements, budget, sector preference, or property details…" style="padding:13px 15px;border:1px solid #e3e8ef;border-radius:11px;font:inherit;font-size:15px;background:#fff;outline:none;resize:vertical;"></textarea></label>
+          <button type="submit" style="align-self:flex-start;background:#c49a3c;color:#14304d;font-weight:700;font-size:15px;border:none;cursor:pointer;padding:14px 32px;border-radius:11px;font-family:inherit;box-shadow:0 10px 20px -10px rgba(196,154,60,.8);">Submit Inquiry</button>
+          <sc-if value="{{ sent }}"><div style="font-size:14px;color:#4f7a3a;background:#eef4ea;border:1px solid #d6e6cd;border-radius:10px;padding:14px 18px;">Your message was successfully sent! We will reply to you shortly.</div></sc-if>
         </form>
       </div>
       <div style="display:flex;flex-direction:column;gap:16px;">
@@ -81,7 +104,7 @@
         </div>
         <div style="background:#fff;border:1px solid #e9edf3;border-radius:16px;padding:24px;display:flex;gap:16px;align-items:start;">
           <span style="width:46px;height:46px;flex-shrink:0;border-radius:12px;background:#14304d;color:#d9b45f;display:flex;align-items:center;justify-content:center;font-size:20px;">☏</span>
-          <div><h3 style="font-family:'Sora',sans-serif;font-weight:600;font-size:16px;margin:0 0 6px;">Phone</h3><div style="font-size:14.5px;line-height:1.85;color:#4a5a6a;"><div><a href="tel:+911244080100" style="color:#4a5a6a;text-decoration:none;">+91-124-4080100</a></div><div><a href="tel:+919810922338" style="color:#4a5a6a;text-decoration:none;">+91-9810922338</a></div><div><a href="tel:+919599639738" style="color:#4a5a6a;text-decoration:none;">+91-9599639738</a> <span style="color:#94a3b2;">· Free Support</span></div></div></div>
+          <div><h3 style="font-family:'Sora',sans-serif;font-weight:600;font-size:16px;margin:0 0 6px;">Phone</h3><div style="font-size:14.5px;line-height:1.85;color:#4a5a6a;"><div><a href="tel:+919810922338" style="color:#4a5a6a;text-decoration:none;font-weight:600;">+91-9810922338</a> <span style="color:#94a3b2;">· Mobile</span></div><div><a href="tel:+911244080100" style="color:#4a5a6a;text-decoration:none;">+91-124-4080100</a> <span style="color:#94a3b2;">· Landline</span></div><div><a href="tel:+919599639738" style="color:#4a5a6a;text-decoration:none;">+91-9599639738</a> <span style="color:#94a3b2;">· Free Support</span></div></div></div>
         </div>
         <div style="background:#fff;border:1px solid #e9edf3;border-radius:16px;padding:24px;display:flex;gap:16px;align-items:start;">
           <span style="width:46px;height:46px;flex-shrink:0;border-radius:12px;background:#14304d;color:#d9b45f;display:flex;align-items:center;justify-content:center;font-size:20px;">✉</span>
@@ -91,16 +114,54 @@
     </div>
   </section>
 
-  <!-- 4. REVIEWS -->
+  <!-- 4. REVIEWS / TESTIMONIALS -->
   <section style="max-width:1240px;margin:0 auto;padding:84px 24px;">
     <div style="text-align:center;max-width:640px;margin:0 auto 48px;">
-      <span style="font-size:12.5px;font-weight:700;letter-spacing:.14em;text-transform:uppercase;color:#c49a3c;">What People Said</span>
-      <h2 style="font-family:'Sora',sans-serif;font-weight:700;font-size:38px;letter-spacing:-.01em;margin:14px 0 0;">Trusted by families & investors</h2>
+      <span style="font-size:12.5px;font-weight:700;letter-spacing:.14em;text-transform:uppercase;color:#c49a3c;">WHAT PEOPLE SAID</span>
+      <h2 style="font-family:'Sora',sans-serif;font-weight:700;font-size:38px;letter-spacing:-.01em;margin:14px 0 6px;">Our Sweet Testimonials</h2>
+      <p style="font-size:15px;color:#64748b;margin:0;">Verified Google reviews from our valued clients</p>
     </div>
-    <div style="display:grid;grid-template-columns:repeat(3,1fr);gap:24px;">
-      <div style="background:#fff;border:1px solid #e9edf3;border-radius:16px;padding:28px;box-shadow:0 20px 40px -34px rgba(20,48,77,.5);"><div style="color:#c49a3c;font-size:22px;margin-bottom:12px;">★★★★★</div><p style="font-size:15px;line-height:1.7;color:#3a4a5a;margin:0 0 20px;">The team understood exactly what we were looking for and made the whole process transparent from start to finish. Genuinely helpful and prompt.</p><div style="display:flex;align-items:center;gap:12px;"><span style="width:44px;height:44px;border-radius:50%;background:#e5eaf1;display:flex;align-items:center;justify-content:center;color:#14304d;font-weight:700;">A</span><div><div style="font-weight:600;font-size:14px;">Client, Gurugram</div><div style="font-size:12.5px;color:#94a3b2;">Verified buyer</div></div></div></div>
-      <div style="background:#fff;border:1px solid #e9edf3;border-radius:16px;padding:28px;box-shadow:0 20px 40px -34px rgba(20,48,77,.5);"><div style="color:#c49a3c;font-size:22px;margin-bottom:12px;">★★★★★</div><p style="font-size:15px;line-height:1.7;color:#3a4a5a;margin:0 0 20px;">Deep Real Estate helped us find the right property within our budget and handled all the paperwork professionally. Highly recommended.</p><div style="display:flex;align-items:center;gap:12px;"><span style="width:44px;height:44px;border-radius:50%;background:#e5eaf1;display:flex;align-items:center;justify-content:center;color:#14304d;font-weight:700;">S</span><div><div style="font-weight:600;font-size:14px;">Client, Sohna</div><div style="font-size:12.5px;color:#94a3b2;">Verified buyer</div></div></div></div>
-      <div style="background:#fff;border:1px solid #e9edf3;border-radius:16px;padding:28px;box-shadow:0 20px 40px -34px rgba(20,48,77,.5);"><div style="color:#c49a3c;font-size:22px;margin-bottom:12px;">★★★★★</div><p style="font-size:15px;line-height:1.7;color:#3a4a5a;margin:0 0 20px;">Responsive, knowledgeable about the sectors, and no hidden costs. They made buying in Gurgaon far simpler than we expected.</p><div style="display:flex;align-items:center;gap:12px;"><span style="width:44px;height:44px;border-radius:50%;background:#e5eaf1;display:flex;align-items:center;justify-content:center;color:#14304d;font-weight:700;">R</span><div><div style="font-weight:600;font-size:14px;">Client, Manesar</div><div style="font-size:12.5px;color:#94a3b2;">Verified buyer</div></div></div></div>
+    <div style="display:grid;grid-template-columns:repeat(4,1fr);gap:20px;">
+      <div style="background:#fff;border:1px solid #e9edf3;border-radius:16px;padding:24px;box-shadow:0 20px 40px -34px rgba(20,48,77,.5);display:flex;flex-direction:column;justify-space-between;">
+        <div>
+          <div style="color:#c49a3c;font-size:18px;margin-bottom:12px;">★★★★★</div>
+          <p style="font-size:14px;line-height:1.7;color:#3a4a5a;margin:0 0 20px;">"Dealing with Deep Real Estate is very amazing experience..Very helpful staff and owner is very responsible and supportive.Will highly recommend it to others.Thankyou"</p>
+        </div>
+        <div style="display:flex;align-items:center;gap:12px;border-top:1px solid #f0f4f8;padding-top:14px;">
+          <span style="width:40px;height:40px;border-radius:50%;background:#14304d;color:#d9b45f;display:flex;align-items:center;justify-content:center;font-weight:700;font-size:15px;">N</span>
+          <div><div style="font-weight:700;font-size:14px;color:#1c2b39;">Neeta Rani</div><div style="font-size:12px;color:#94a3b2;">Google Reviewer</div></div>
+        </div>
+      </div>
+      <div style="background:#fff;border:1px solid #e9edf3;border-radius:16px;padding:24px;box-shadow:0 20px 40px -34px rgba(20,48,77,.5);display:flex;flex-direction:column;justify-space-between;">
+        <div>
+          <div style="color:#c49a3c;font-size:18px;margin-bottom:12px;">★★★★★</div>
+          <p style="font-size:14px;line-height:1.7;color:#3a4a5a;margin:0 0 20px;">"One of the best real estate broker in Gurugram. Hardworking honest and quality conscience builder."</p>
+        </div>
+        <div style="display:flex;align-items:center;gap:12px;border-top:1px solid #f0f4f8;padding-top:14px;">
+          <span style="width:40px;height:40px;border-radius:50%;background:#14304d;color:#d9b45f;display:flex;align-items:center;justify-content:center;font-weight:700;font-size:15px;">A</span>
+          <div><div style="font-weight:700;font-size:14px;color:#1c2b39;">Anil kumar Sharma</div><div style="font-size:12px;color:#94a3b2;">Google Reviewer</div></div>
+        </div>
+      </div>
+      <div style="background:#fff;border:1px solid #e9edf3;border-radius:16px;padding:24px;box-shadow:0 20px 40px -34px rgba(20,48,77,.5);display:flex;flex-direction:column;justify-space-between;">
+        <div>
+          <div style="color:#c49a3c;font-size:18px;margin-bottom:12px;">★★★★★</div>
+          <p style="font-size:14px;line-height:1.7;color:#3a4a5a;margin:0 0 20px;">"Excellent experience 👏 👌 dealing with property consultants. Fair deal"</p>
+        </div>
+        <div style="display:flex;align-items:center;gap:12px;border-top:1px solid #f0f4f8;padding-top:14px;">
+          <span style="width:40px;height:40px;border-radius:50%;background:#14304d;color:#d9b45f;display:flex;align-items:center;justify-content:center;font-weight:700;font-size:15px;">A</span>
+          <div><div style="font-weight:700;font-size:14px;color:#1c2b39;">anamika wadhera</div><div style="font-size:12px;color:#94a3b2;">Google Reviewer</div></div>
+        </div>
+      </div>
+      <div style="background:#fff;border:1px solid #e9edf3;border-radius:16px;padding:24px;box-shadow:0 20px 40px -34px rgba(20,48,77,.5);display:flex;flex-direction:column;justify-space-between;">
+        <div>
+          <div style="color:#c49a3c;font-size:18px;margin-bottom:12px;">★★★★★</div>
+          <p style="font-size:14px;line-height:1.7;color:#3a4a5a;margin:0 0 20px;">"Company do good work with efforts and they are try to give you as you want."</p>
+        </div>
+        <div style="display:flex;align-items:center;gap:12px;border-top:1px solid #f0f4f8;padding-top:14px;">
+          <span style="width:40px;height:40px;border-radius:50%;background:#14304d;color:#d9b45f;display:flex;align-items:center;justify-content:center;font-weight:700;font-size:15px;">A</span>
+          <div><div style="font-weight:700;font-size:14px;color:#1c2b39;">Abhishek Chauhan</div><div style="font-size:12px;color:#94a3b2;">Google Reviewer</div></div>
+        </div>
+      </div>
     </div>
   </section>
 
