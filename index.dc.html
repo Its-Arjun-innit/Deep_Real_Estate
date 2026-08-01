@@ -45,6 +45,15 @@
       .glass-hero{background:rgba(14,36,57,.55);}
     }
     @media (max-width:640px){.glass-hero{padding:34px 26px;}}
+    /* Infinite partner-logo marquee */
+    .marquee{overflow:hidden;-webkit-mask-image:linear-gradient(90deg,transparent,#000 7%,#000 93%,transparent);mask-image:linear-gradient(90deg,transparent,#000 7%,#000 93%,transparent);}
+    .marquee__track{display:flex;width:max-content;align-items:center;animation:marquee 42s linear infinite;}
+    .marquee:hover .marquee__track{animation-play-state:paused;}
+    .marquee__item{flex:0 0 auto;display:flex;align-items:center;justify-content:center;padding:0 40px;}
+    .marquee__item img{height:44px;width:auto;max-width:170px;object-fit:contain;filter:grayscale(1);opacity:.62;transition:filter .3s ease,opacity .3s ease;}
+    .marquee__item img:hover{filter:grayscale(0);opacity:1;}
+    @keyframes marquee{from{transform:translateX(0);}to{transform:translateX(-50%);}}
+    @media (prefers-reduced-motion:reduce){.marquee__track{animation:none;flex-wrap:wrap;justify-content:center;width:100%;}}
   </style>
 </helmet>
 <div style="font-family:'Plus Jakarta Sans',sans-serif;color:#1c2b39;background:#fff;">
@@ -251,30 +260,22 @@
     </div>
   </section>
 
-  <!-- 6c. TOP PROPERTIES IN CITIES -->
-  <section style="background:#f4f6f9;">
-    <div style="max-width:1240px;margin:0 auto;padding:84px 24px;">
+  <!-- 6c. PARTNER DEVELOPERS — infinite logo marquee -->
+  <section style="background:#fff;">
+    <div style="max-width:1240px;margin:0 auto;padding:84px 24px 0;">
       <div style="text-align:center;max-width:640px;margin:0 auto 44px;">
-        <span style="font-size:12.5px;font-weight:700;letter-spacing:.14em;text-transform:uppercase;color:#c49a3c;">Top Properties in Cities</span>
-        <h2 style="font-family:'Sora',sans-serif;font-weight:700;font-size:38px;letter-spacing:-.01em;margin:14px 0 0;">Where we operate</h2>
+        <span style="font-size:12.5px;font-weight:700;letter-spacing:.14em;text-transform:uppercase;color:#c49a3c;">Our Partners</span>
+        <h2 style="font-family:'Sora',sans-serif;font-weight:700;font-size:38px;letter-spacing:-.01em;margin:14px 0 0;">Developers we work with</h2>
       </div>
-      <div style="display:grid;grid-template-columns:repeat(4,1fr);gap:22px;">
-        <div style="position:relative;border-radius:16px;overflow:hidden;aspect-ratio:3/4;background:repeating-linear-gradient(135deg,#e4e9f0,#e4e9f0 13px,#dbe2ea 13px,#dbe2ea 26px);display:flex;align-items:end;">
-          <div style="position:absolute;inset:0;background:linear-gradient(to top,rgba(14,36,57,.82),transparent 55%);"></div>
-          <div style="position:relative;padding:20px;color:#fff;"><div style="font-family:'Sora',sans-serif;font-weight:700;font-size:20px;">Gurugram</div><div style="font-size:13px;color:#d9b45f;">Premium & residential</div></div>
-        </div>
-        <div style="position:relative;border-radius:16px;overflow:hidden;aspect-ratio:3/4;background:repeating-linear-gradient(135deg,#e4e9f0,#e4e9f0 13px,#dbe2ea 13px,#dbe2ea 26px);display:flex;align-items:end;">
-          <div style="position:absolute;inset:0;background:linear-gradient(to top,rgba(14,36,57,.82),transparent 55%);"></div>
-          <div style="position:relative;padding:20px;color:#fff;"><div style="font-family:'Sora',sans-serif;font-weight:700;font-size:20px;">Manesar</div><div style="font-size:13px;color:#d9b45f;">Plots & industrial</div></div>
-        </div>
-        <div style="position:relative;border-radius:16px;overflow:hidden;aspect-ratio:3/4;background:repeating-linear-gradient(135deg,#e4e9f0,#e4e9f0 13px,#dbe2ea 13px,#dbe2ea 26px);display:flex;align-items:end;">
-          <div style="position:absolute;inset:0;background:linear-gradient(to top,rgba(14,36,57,.82),transparent 55%);"></div>
-          <div style="position:relative;padding:20px;color:#fff;"><div style="font-family:'Sora',sans-serif;font-weight:700;font-size:20px;">Dharuhera</div><div style="font-size:13px;color:#d9b45f;">Emerging value</div></div>
-        </div>
-        <div style="position:relative;border-radius:16px;overflow:hidden;aspect-ratio:3/4;background:repeating-linear-gradient(135deg,#e4e9f0,#e4e9f0 13px,#dbe2ea 13px,#dbe2ea 26px);display:flex;align-items:end;">
-          <div style="position:absolute;inset:0;background:linear-gradient(to top,rgba(14,36,57,.82),transparent 55%);"></div>
-          <div style="position:relative;padding:20px;color:#fff;"><div style="font-family:'Sora',sans-serif;font-weight:700;font-size:20px;">Sohna</div><div style="font-size:13px;color:#d9b45f;">Farmhouse & land</div></div>
-        </div>
+    </div>
+    <div class="marquee" style="padding-bottom:84px;">
+      <div class="marquee__track">
+        <sc-for list="{{ partners }}" as="p">
+          <div class="marquee__item"><img src="{{ p.src }}" alt="{{ p.name }}" loading="lazy"></div>
+        </sc-for>
+        <sc-for list="{{ partners }}" as="p">
+          <div class="marquee__item" aria-hidden="true"><img src="{{ p.src }}" alt="" loading="lazy"></div>
+        </sc-for>
       </div>
     </div>
   </section>
@@ -293,10 +294,21 @@
 <script type="text/x-dc" data-dc-script>
 class Component extends DCLogic {
   state = { sent: false };
+  partners() {
+    return [
+      ['DLF', 'dlf.jpg'], ['Bestech', 'bestech.gif'], ['BPTP', 'bptp.png'],
+      ['Unitech', 'unitech.jpg'], ['Earthtech', 'earth.png'], ['Emaar', 'emaar.jpg'],
+      ['Suncity', 'suncity.gif'], ['SS Group', 'ssgroup.jpg'], ['Erose', 'erose.jpg'],
+      ['Parswanath', 'parswanath.jpg'], ['Central Park', 'central-park-logo1.jpg'],
+      ['Spaze', 'logo-spaze.jpg'], ['Antariksh', 'antariksh.jpg'],
+      ['Universal', 'universal_logo.gif'], ['KLJ', 'Logo_KLJ.gif'],
+    ].map(([name, file]) => ({ name, src: 'assets/partners/' + file }));
+  }
   renderVals() {
     return {
       sent: this.state.sent,
       onSubmit: (e) => { e.preventDefault(); this.setState({ sent: true }); },
+      partners: this.partners(),
     };
   }
 }
