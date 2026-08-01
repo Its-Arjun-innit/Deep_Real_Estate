@@ -1,0 +1,13 @@
+{
+  "name": "deep-real-estate",
+  "version": "1.0.0",
+  "description": "Deep Real Estate website",
+  "main": "index.dc.html",
+  "scripts": {
+    "start": "npx -y serve . -l 3000",
+    "dev": "npx -y serve . -l 3000"
+  },
+  "keywords": [],
+  "author": "Its-Arjun-innit",
+  "license": "ISC"
+}
