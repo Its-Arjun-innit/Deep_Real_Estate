@@ -34,6 +34,9 @@ scraps/
 # === CorelDRAW source files (large binary, not web-usable) ===
 Elements/deep.cdr
 
+# === Large source footage (181MB) — the web loop assets/hero.mp4 is used instead ===
+Elements/Video Project 2.mp4
+
 # === Build / cache artifacts ===
 dist/
 .cache/
